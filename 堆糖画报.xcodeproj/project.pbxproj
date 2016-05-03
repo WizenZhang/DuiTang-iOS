@@ -13,7 +13,6 @@
 		A1DF6A151CD896F3002466A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DF6A141CD896F3002466A2 /* Images.xcassets */; };
 		A1DF6A241CD896F3002466A2 /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A231CD896F3002466A2 /* ____Tests.m */; };
 		A1DF6A431CD897C7002466A2 /* WZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A421CD897C7002466A2 /* WZTabBarController.m */; };
-		A1DF6A461CD898A7002466A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A451CD898A7002466A2 /* ViewController.m */; };
 		A1DF6A491CD89D38002466A2 /* WZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A481CD89D38002466A2 /* WZHomeViewController.m */; };
 		A1DF6A4C1CD89D60002466A2 /* WZSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A4B1CD89D60002466A2 /* WZSortViewController.m */; };
 		A1DF6A4F1CD89D78002466A2 /* WZStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A4E1CD89D78002466A2 /* WZStoreViewController.m */; };
@@ -44,8 +43,6 @@
 		A1DF6A231CD896F3002466A2 /* ____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____Tests.m"; sourceTree = "<group>"; };
 		A1DF6A411CD897C7002466A2 /* WZTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZTabBarController.h; sourceTree = "<group>"; };
 		A1DF6A421CD897C7002466A2 /* WZTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZTabBarController.m; sourceTree = "<group>"; };
-		A1DF6A441CD898A7002466A2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A1DF6A451CD898A7002466A2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A1DF6A471CD89D38002466A2 /* WZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZHomeViewController.h; sourceTree = "<group>"; };
 		A1DF6A481CD89D38002466A2 /* WZHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZHomeViewController.m; sourceTree = "<group>"; };
 		A1DF6A4A1CD89D60002466A2 /* WZSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZSortViewController.h; sourceTree = "<group>"; };
@@ -191,8 +188,6 @@
 		A1DF6A331CD8972C002466A2 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				A1DF6A441CD898A7002466A2 /* ViewController.h */,
-				A1DF6A451CD898A7002466A2 /* ViewController.m */,
 				A1DF6A0B1CD896F3002466A2 /* AppDelegate.h */,
 				A1DF6A0C1CD896F3002466A2 /* AppDelegate.m */,
 				A1DF6A341CD8972C002466A2 /* Category */,
@@ -410,7 +405,6 @@
 				A1DF6A0D1CD896F3002466A2 /* AppDelegate.m in Sources */,
 				A1DF6A0A1CD896F3002466A2 /* main.m in Sources */,
 				A1DF6A531CD89EB0002466A2 /* WZTabBar.m in Sources */,
-				A1DF6A461CD898A7002466A2 /* ViewController.m in Sources */,
 				A1DF6A4F1CD89D78002466A2 /* WZStoreViewController.m in Sources */,
 				A1DF6A431CD897C7002466A2 /* WZTabBarController.m in Sources */,
 				A1DF6A491CD89D38002466A2 /* WZHomeViewController.m in Sources */,
