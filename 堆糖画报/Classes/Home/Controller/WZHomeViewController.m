@@ -7,9 +7,11 @@
 //
 
 #import "WZHomeViewController.h"
-
+#import "AFNetworking.h"
+#import "WZTopData.h"
+#import "UIImageView+WebCache.h"
 @interface WZHomeViewController ()
-
+@property(nonatomic,strong)NSArray *statuses;
 @end
 
 @implementation WZHomeViewController
@@ -17,11 +19,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    // 1.创建请求管理对象
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    // 2.说明服务器返回的是Json数据
+    //    mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // 3.发送请求
+    [mgr GET:@"http://www.duitang.com/napi/ad/banner/week/?platform_version=4.1.2&device_platform=8295&screen_width=540&screen_height=960&app_version=57&platform_name=Android&locale=zh&adid=ANA001&app_code=nayutas" parameters:nil
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         NSArray *dictArray=responseObject[@"data"];
+         NSMutableArray *dataArray=[NSMutableArray array];
+         for (NSDictionary *dict in dictArray) {
+             WZTopData *data=[WZTopData dataWithDict:dict];
+             [dataArray addObject:data];
+         }
+         self.statuses=dataArray;
+         [self.tableView reloadData];
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"fail");
+     }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,24 +52,34 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.statuses.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *ID = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
+    WZTopData *status=self.statuses[indexPath.row];
+    cell.textLabel.text=status.desc;
     
-    // Configure the cell...
+    cell.detailTextLabel.text=status.enabled_at_str;
     
+//    NSString *iconUrl=status.image_url;
+//    NSData *imageData=[NSData dataWithContentsOfURL:[NSURL URLWithString:iconUrl]];
+//    cell.imageView.image=[UIImage imageWithData:imageData];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:status.image_url]placeholderImage:[UIImage imageNamed:@"image_default"]];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
