@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "WZTabBarController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +16,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //1.创建Window
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //2.设置根控制器
+    self.window.rootViewController = [[WZTabBarController alloc] init];
+    //3.显示Window
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
