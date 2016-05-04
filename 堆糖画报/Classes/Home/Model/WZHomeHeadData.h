@@ -1,5 +1,5 @@
 //
-//  WZTopData.h
+//  WZHeadData.h
 //  堆糖画报
 //
 //  Created by Wizen Zhang on 16/5/3.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WZTopData : NSObject
+@interface WZHomeHeadData : NSObject
 /**
  *  顶部画报的描述
  */

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A186A4121CD8CE43008A2FB1 /* WZTopData.m in Sources */ = {isa = PBXBuildFile; fileRef = A186A4111CD8CE43008A2FB1 /* WZTopData.m */; };
 		A1A7121B1CD8DBB90045A5C8 /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A711EB1CD8DBB90045A5C8 /* MJArgument.m */; };
 		A1A7121C1CD8DBB90045A5C8 /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A711EE1CD8DBB90045A5C8 /* MJIvar.m */; };
 		A1A7121D1CD8DBB90045A5C8 /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A711F01CD8DBB90045A5C8 /* MJMember.m */; };
@@ -51,6 +50,10 @@
 		A1DF6A711CD8A9EC002466A2 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A661CD8A9EC002466A2 /* AFURLRequestSerialization.m */; };
 		A1DF6A721CD8A9EC002466A2 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A681CD8A9EC002466A2 /* AFURLResponseSerialization.m */; };
 		A1DF6A731CD8A9EC002466A2 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A6A1CD8A9EC002466A2 /* AFURLSessionManager.m */; };
+		A1E515811CD9D04200AE9E49 /* WZHomeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E515801CD9D04200AE9E49 /* WZHomeHeadView.xib */; };
+		A1E5BFA61CDA303A00E026EF /* NSYearToWeek+WZ.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E5BFA51CDA303A00E026EF /* NSYearToWeek+WZ.m */; };
+		A1EDF13C1CD9993600FCBC26 /* WZHomeHeadData.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EDF13B1CD9993600FCBC26 /* WZHomeHeadData.m */; };
+		A1EDF13F1CD9996500FCBC26 /* WZHomeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EDF13E1CD9996500FCBC26 /* WZHomeHeadView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +67,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A186A4101CD8CE43008A2FB1 /* WZTopData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZTopData.h; sourceTree = "<group>"; };
-		A186A4111CD8CE43008A2FB1 /* WZTopData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZTopData.m; sourceTree = "<group>"; };
 		A1A711EA1CD8DBB90045A5C8 /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		A1A711EB1CD8DBB90045A5C8 /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		A1A711EC1CD8DBB90045A5C8 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -156,6 +157,14 @@
 		A1DF6A681CD8A9EC002466A2 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		A1DF6A691CD8A9EC002466A2 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		A1DF6A6A1CD8A9EC002466A2 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		A1E515801CD9D04200AE9E49 /* WZHomeHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZHomeHeadView.xib; sourceTree = "<group>"; };
+		A1E5BFA41CDA303A00E026EF /* NSYearToWeek+WZ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSYearToWeek+WZ.h"; sourceTree = "<group>"; };
+		A1E5BFA51CDA303A00E026EF /* NSYearToWeek+WZ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSYearToWeek+WZ.m"; sourceTree = "<group>"; };
+		A1E5BFA91CDA443E00E026EF /* WZNetInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZNetInterface.h; sourceTree = "<group>"; };
+		A1EDF13A1CD9993600FCBC26 /* WZHomeHeadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZHomeHeadData.h; sourceTree = "<group>"; };
+		A1EDF13B1CD9993600FCBC26 /* WZHomeHeadData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZHomeHeadData.m; sourceTree = "<group>"; };
+		A1EDF13D1CD9996500FCBC26 /* WZHomeHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZHomeHeadView.h; sourceTree = "<group>"; };
+		A1EDF13E1CD9996500FCBC26 /* WZHomeHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZHomeHeadView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,8 +337,8 @@
 		A1DF6A301CD8972C002466A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A186A4101CD8CE43008A2FB1 /* WZTopData.h */,
-				A186A4111CD8CE43008A2FB1 /* WZTopData.m */,
+				A1EDF13A1CD9993600FCBC26 /* WZHomeHeadData.h */,
+				A1EDF13B1CD9993600FCBC26 /* WZHomeHeadData.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +346,9 @@
 		A1DF6A311CD8972C002466A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A1EDF13D1CD9996500FCBC26 /* WZHomeHeadView.h */,
+				A1EDF13E1CD9996500FCBC26 /* WZHomeHeadView.m */,
+				A1E515801CD9D04200AE9E49 /* WZHomeHeadView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +356,7 @@
 		A1DF6A321CD8972C002466A2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A1E5BFA81CDA443E00E026EF /* Tool */,
 				A1DF6A3E1CD897A5002466A2 /* Controller */,
 				A1DF6A3F1CD897A5002466A2 /* Model */,
 				A1DF6A401CD897A5002466A2 /* View */,
@@ -365,6 +378,8 @@
 		A1DF6A341CD8972C002466A2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A1E5BFA41CDA303A00E026EF /* NSYearToWeek+WZ.h */,
+				A1E5BFA51CDA303A00E026EF /* NSYearToWeek+WZ.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -498,6 +513,14 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		A1E5BFA81CDA443E00E026EF /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				A1E5BFA91CDA443E00E026EF /* WZNetInterface.h */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -579,6 +602,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1DF6A131CD896F3002466A2 /* Main.storyboard in Resources */,
+				A1E515811CD9D04200AE9E49 /* WZHomeHeadView.xib in Resources */,
 				A1DF6A151CD896F3002466A2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,8 +639,9 @@
 				A1DF6A531CD89EB0002466A2 /* WZTabBar.m in Sources */,
 				A1A7122D1CD8DBB90045A5C8 /* UIButton+WebCache.m in Sources */,
 				A1A7122E1CD8DBB90045A5C8 /* UIImage+GIF.m in Sources */,
+				A1E5BFA61CDA303A00E026EF /* NSYearToWeek+WZ.m in Sources */,
+				A1EDF13F1CD9996500FCBC26 /* WZHomeHeadView.m in Sources */,
 				A1DF6A6D1CD8A9EC002466A2 /* AFHTTPSessionManager.m in Sources */,
-				A186A4121CD8CE43008A2FB1 /* WZTopData.m in Sources */,
 				A1DF6A4F1CD89D78002466A2 /* WZStoreViewController.m in Sources */,
 				A1A712211CD8DBB90045A5C8 /* NSObject+MJCoding.m in Sources */,
 				A1DF6A431CD897C7002466A2 /* WZTabBarController.m in Sources */,
@@ -627,6 +652,7 @@
 				A1A712301CD8DBB90045A5C8 /* UIImage+WebP.m in Sources */,
 				A1DF6A4C1CD89D60002466A2 /* WZSortViewController.m in Sources */,
 				A1A712311CD8DBB90045A5C8 /* UIImageView+WebCache.m in Sources */,
+				A1EDF13C1CD9993600FCBC26 /* WZHomeHeadData.m in Sources */,
 				A1DF6A711CD8A9EC002466A2 /* AFURLRequestSerialization.m in Sources */,
 				A1A712201CD8DBB90045A5C8 /* MJTypeEncoding.m in Sources */,
 				A1DF6A6E1CD8A9EC002466A2 /* AFNetworkReachabilityManager.m in Sources */,

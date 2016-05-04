@@ -1,14 +1,14 @@
 //
-//  WZTopData.m
+//  WZHeadData.m
 //  堆糖画报
 //
 //  Created by Wizen Zhang on 16/5/3.
 //  Copyright (c) 2016年 Wizen Zhang. All rights reserved.
 //
 
-#import "WZTopData.h"
+#import "WZHomeHeadData.h"
 
-@implementation WZTopData
+@implementation WZHomeHeadData
 + (instancetype)dataWithDict:(NSDictionary *)dict
 {
     return [[self alloc] initWithDict:dict];

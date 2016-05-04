@@ -8,8 +8,10 @@
 
 #import "WZHomeViewController.h"
 #import "AFNetworking.h"
-#import "WZTopData.h"
+#import "WZHomeHeadData.h"
 #import "UIImageView+WebCache.h"
+#import "WZHomeHeadView.h"
+
 @interface WZHomeViewController ()
 @property(nonatomic,strong)NSArray *statuses;
 @end
@@ -19,6 +21,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //1.加载主页顶部数据
+    [self loadHomeTopData];
+    
+    //2.加载ScrollView
+//    UIScrollView *scroll=[[UIScrollView alloc]init];
+//    CGFloat scrollW=[UIScreen mainScreen].bounds.size.width;
+//    scroll.frame=CGRectMake(0, 0, scrollW, 150);
+//    scroll.backgroundColor=[UIColor redColor];
+    self.tableView.tableHeaderView =[WZHomeHeadView headerView];
+}
+- (void)loadHomeTopData
+{
     // 1.创建请求管理对象
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     // 2.说明服务器返回的是Json数据
@@ -30,7 +44,7 @@
          NSArray *dictArray=responseObject[@"data"];
          NSMutableArray *dataArray=[NSMutableArray array];
          for (NSDictionary *dict in dictArray) {
-             WZTopData *data=[WZTopData dataWithDict:dict];
+             WZHomeHeadData *data=[WZHomeHeadData dataWithDict:dict];
              [dataArray addObject:data];
          }
          self.statuses=dataArray;
@@ -39,9 +53,8 @@
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          NSLog(@"fail");
      }];
-
+ 
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -68,14 +81,14 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
-    WZTopData *status=self.statuses[indexPath.row];
+    WZHomeHeadData *status=self.statuses[indexPath.row];
     cell.textLabel.text=status.desc;
     
-    cell.detailTextLabel.text=status.enabled_at_str;
-    
-//    NSString *iconUrl=status.image_url;
+    cell.detailTextLabel.text=status.enabled_at_str;//    NSString *iconUrl=status.image_url;
 //    NSData *imageData=[NSData dataWithContentsOfURL:[NSURL URLWithString:iconUrl]];
 //    cell.imageView.image=[UIImage imageWithData:imageData];
+
+    
     [cell.imageView setImageWithURL:[NSURL URLWithString:status.image_url]placeholderImage:[UIImage imageNamed:@"image_default"]];
     return cell;
 }
