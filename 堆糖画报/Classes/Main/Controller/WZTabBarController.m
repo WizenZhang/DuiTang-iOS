@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor redColor];
+//    self.view.backgroundColor=[UIColor redColor];
     
     // 初始化tabbar
     [self setupTabbar];

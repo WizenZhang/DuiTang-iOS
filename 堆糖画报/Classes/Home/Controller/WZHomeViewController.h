@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WZHomeViewController : UITableViewController
-
+@interface WZHomeViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+@property (nonatomic,strong)UICollectionView *collectionView;
 @end

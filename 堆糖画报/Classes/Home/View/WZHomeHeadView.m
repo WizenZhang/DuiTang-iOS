@@ -72,14 +72,14 @@
         //添加描述标签
         UILabel *desc=[[UILabel alloc]init];
         [self setupChildLabel:desc text:status.desc textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:20]];
-        desc.frame=CGRectMake(imageX+10, 130, 300, 40);
+        desc.frame=CGRectMake(imageX+10, 150, 300, 40);
 
         [self.scrollView addSubview:desc];
         //添加星期
         UILabel *enabled_at_str=[[UILabel alloc]init];
         NSString *text=[NSYearToWeek_WZ yearToWeek:status.enabled_at_str];
         [self setupChildLabel:enabled_at_str text:text textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:20]];
-        enabled_at_str.frame=CGRectMake(imageX+10, 110, 300, 40);
+        enabled_at_str.frame=CGRectMake(imageX+10, 130, 300, 40);
         
         [self.scrollView addSubview:enabled_at_str];
     }
