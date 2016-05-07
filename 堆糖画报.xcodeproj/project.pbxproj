@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A14731471CDD908B00DA710E /* WZCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A14731461CDD908B00DA710E /* WZCellFrame.m */; };
 		A1A712241CD8DBB90045A5C8 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A711FF1CD8DBB90045A5C8 /* MKAnnotationView+WebCache.m */; };
 		A1A712251CD8DBB90045A5C8 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A712011CD8DBB90045A5C8 /* NSData+ImageContentType.m */; };
 		A1A712261CD8DBB90045A5C8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A712031CD8DBB90045A5C8 /* SDImageCache.m */; };
@@ -54,6 +55,11 @@
 		A1DF6A711CD8A9EC002466A2 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A661CD8A9EC002466A2 /* AFURLRequestSerialization.m */; };
 		A1DF6A721CD8A9EC002466A2 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A681CD8A9EC002466A2 /* AFURLResponseSerialization.m */; };
 		A1DF6A731CD8A9EC002466A2 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A6A1CD8A9EC002466A2 /* AFURLSessionManager.m */; };
+		A1E0EFE91CDDC42C00EC9501 /* WZTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E0EFE81CDDC42C00EC9501 /* WZTopView.m */; };
+		A1E0EFEE1CDDC72100EC9501 /* UIBarButtonItem+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E0EFEB1CDDC72100EC9501 /* UIBarButtonItem+MJ.m */; };
+		A1E0EFEF1CDDC72100EC9501 /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E0EFED1CDDC72100EC9501 /* UIImage+MJ.m */; };
+		A1E0EFF21CDDDD0200EC9501 /* WZMiddleToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E0EFF11CDDDD0200EC9501 /* WZMiddleToolBar.m */; };
+		A1E0EFF51CDDDDA500EC9501 /* WZBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E0EFF41CDDDDA500EC9501 /* WZBottomView.m */; };
 		A1E515811CD9D04200AE9E49 /* WZHomeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E515801CD9D04200AE9E49 /* WZHomeHeadView.xib */; };
 		A1E5BFA61CDA303A00E026EF /* NSYearToWeek+WZ.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E5BFA51CDA303A00E026EF /* NSYearToWeek+WZ.m */; };
 		A1EDF13C1CD9993600FCBC26 /* WZHomeHeadData.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EDF13B1CD9993600FCBC26 /* WZHomeHeadData.m */; };
@@ -72,6 +78,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A14731451CDD908B00DA710E /* WZCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZCellFrame.h; sourceTree = "<group>"; };
+		A14731461CDD908B00DA710E /* WZCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZCellFrame.m; sourceTree = "<group>"; };
 		A1A711FE1CD8DBB90045A5C8 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		A1A711FF1CD8DBB90045A5C8 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		A1A712001CD8DBB90045A5C8 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -170,6 +178,16 @@
 		A1DF6A681CD8A9EC002466A2 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		A1DF6A691CD8A9EC002466A2 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		A1DF6A6A1CD8A9EC002466A2 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		A1E0EFE71CDDC42C00EC9501 /* WZTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZTopView.h; sourceTree = "<group>"; };
+		A1E0EFE81CDDC42C00EC9501 /* WZTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZTopView.m; sourceTree = "<group>"; };
+		A1E0EFEA1CDDC72100EC9501 /* UIBarButtonItem+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MJ.h"; sourceTree = "<group>"; };
+		A1E0EFEB1CDDC72100EC9501 /* UIBarButtonItem+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MJ.m"; sourceTree = "<group>"; };
+		A1E0EFEC1CDDC72100EC9501 /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJ.h"; sourceTree = "<group>"; };
+		A1E0EFED1CDDC72100EC9501 /* UIImage+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MJ.m"; sourceTree = "<group>"; };
+		A1E0EFF01CDDDD0200EC9501 /* WZMiddleToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMiddleToolBar.h; sourceTree = "<group>"; };
+		A1E0EFF11CDDDD0200EC9501 /* WZMiddleToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMiddleToolBar.m; sourceTree = "<group>"; };
+		A1E0EFF31CDDDDA500EC9501 /* WZBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZBottomView.h; sourceTree = "<group>"; };
+		A1E0EFF41CDDDDA500EC9501 /* WZBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZBottomView.m; sourceTree = "<group>"; };
 		A1E515801CD9D04200AE9E49 /* WZHomeHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WZHomeHeadView.xib; sourceTree = "<group>"; };
 		A1E5BFA41CDA303A00E026EF /* NSYearToWeek+WZ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSYearToWeek+WZ.h"; sourceTree = "<group>"; };
 		A1E5BFA51CDA303A00E026EF /* NSYearToWeek+WZ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSYearToWeek+WZ.m"; sourceTree = "<group>"; };
@@ -362,6 +380,8 @@
 				A1B260AA1CDC81480048F920 /* WZAlbum.m */,
 				A1B260AC1CDC816C0048F920 /* WZSender.h */,
 				A1B260AD1CDC816C0048F920 /* WZSender.m */,
+				A14731451CDD908B00DA710E /* WZCellFrame.h */,
+				A14731461CDD908B00DA710E /* WZCellFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -374,6 +394,12 @@
 				A1E515801CD9D04200AE9E49 /* WZHomeHeadView.xib */,
 				A1FA20941CDCC3D200BDD9B0 /* WZCollectionViewCell.h */,
 				A1FA20951CDCC3D200BDD9B0 /* WZCollectionViewCell.m */,
+				A1E0EFE71CDDC42C00EC9501 /* WZTopView.h */,
+				A1E0EFE81CDDC42C00EC9501 /* WZTopView.m */,
+				A1E0EFF01CDDDD0200EC9501 /* WZMiddleToolBar.h */,
+				A1E0EFF11CDDDD0200EC9501 /* WZMiddleToolBar.m */,
+				A1E0EFF31CDDDDA500EC9501 /* WZBottomView.h */,
+				A1E0EFF41CDDDDA500EC9501 /* WZBottomView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -403,6 +429,10 @@
 		A1DF6A341CD8972C002466A2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A1E0EFEA1CDDC72100EC9501 /* UIBarButtonItem+MJ.h */,
+				A1E0EFEB1CDDC72100EC9501 /* UIBarButtonItem+MJ.m */,
+				A1E0EFEC1CDDC72100EC9501 /* UIImage+MJ.h */,
+				A1E0EFED1CDDC72100EC9501 /* UIImage+MJ.m */,
 				A1E5BFA41CDA303A00E026EF /* NSYearToWeek+WZ.h */,
 				A1E5BFA51CDA303A00E026EF /* NSYearToWeek+WZ.m */,
 			);
@@ -662,8 +692,10 @@
 				A1DF6A0A1CD896F3002466A2 /* main.m in Sources */,
 				A1DF6A531CD89EB0002466A2 /* WZTabBar.m in Sources */,
 				A1B260E71CDC98A60048F920 /* NSObject+MJCoding.m in Sources */,
+				A1E0EFF51CDDDDA500EC9501 /* WZBottomView.m in Sources */,
 				A1A7122D1CD8DBB90045A5C8 /* UIButton+WebCache.m in Sources */,
 				A1A7122E1CD8DBB90045A5C8 /* UIImage+GIF.m in Sources */,
+				A1E0EFEE1CDDC72100EC9501 /* UIBarButtonItem+MJ.m in Sources */,
 				A1E5BFA61CDA303A00E026EF /* NSYearToWeek+WZ.m in Sources */,
 				A1B260E41CDC98A60048F920 /* MJMethod.m in Sources */,
 				A1EDF13F1CD9996500FCBC26 /* WZHomeHeadView.m in Sources */,
@@ -671,6 +703,7 @@
 				A1DF6A4F1CD89D78002466A2 /* WZStoreViewController.m in Sources */,
 				A1B260E21CDC98A60048F920 /* MJIvar.m in Sources */,
 				A1DF6A431CD897C7002466A2 /* WZTabBarController.m in Sources */,
+				A1E0EFEF1CDDC72100EC9501 /* UIImage+MJ.m in Sources */,
 				A1B260E81CDC98A60048F920 /* NSObject+MJKeyValue.m in Sources */,
 				A1DF6A491CD89D38002466A2 /* WZHomeViewController.m in Sources */,
 				A1B260E11CDC98A60048F920 /* MJArgument.m in Sources */,
@@ -679,11 +712,13 @@
 				A1DF6A6F1CD8A9EC002466A2 /* AFSecurityPolicy.m in Sources */,
 				A1A7122B1CD8DBB90045A5C8 /* SDWebImageManager.m in Sources */,
 				A1B260E31CDC98A60048F920 /* MJMember.m in Sources */,
+				A1E0EFE91CDDC42C00EC9501 /* WZTopView.m in Sources */,
 				A1A712301CD8DBB90045A5C8 /* UIImage+WebP.m in Sources */,
 				A1DF6A4C1CD89D60002466A2 /* WZSortViewController.m in Sources */,
 				A1B260E61CDC98A60048F920 /* MJTypeEncoding.m in Sources */,
 				A1A712311CD8DBB90045A5C8 /* UIImageView+WebCache.m in Sources */,
 				A1EDF13C1CD9993600FCBC26 /* WZHomeHeadData.m in Sources */,
+				A1E0EFF21CDDDD0200EC9501 /* WZMiddleToolBar.m in Sources */,
 				A1DF6A711CD8A9EC002466A2 /* AFURLRequestSerialization.m in Sources */,
 				A1DF6A6E1CD8A9EC002466A2 /* AFNetworkReachabilityManager.m in Sources */,
 				A1A712291CD8DBB90045A5C8 /* SDWebImageDownloader.m in Sources */,
@@ -691,6 +726,7 @@
 				A1A712241CD8DBB90045A5C8 /* MKAnnotationView+WebCache.m in Sources */,
 				A1DF6A721CD8A9EC002466A2 /* AFURLResponseSerialization.m in Sources */,
 				A1A712281CD8DBB90045A5C8 /* SDWebImageDecoder.m in Sources */,
+				A14731471CDD908B00DA710E /* WZCellFrame.m in Sources */,
 				A1A712271CD8DBB90045A5C8 /* SDWebImageCompat.m in Sources */,
 				A1A712251CD8DBB90045A5C8 /* NSData+ImageContentType.m in Sources */,
 				A1DF6A561CD89EE5002466A2 /* WZTabBarButton.m in Sources */,

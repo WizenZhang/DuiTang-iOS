@@ -16,13 +16,21 @@
 #import "WZPhoto.h"
 #import "WZAlbum.h"
 #import "WZSender.h"
+#import "WZCellFrame.h"
 #import "WZCollectionViewCell.h"
 
 @interface WZHomeViewController ()
-@property(nonatomic,strong)NSArray *ObjectLists;
+@property(nonatomic,strong)NSMutableArray *cellFrame;
 @end
 
 @implementation WZHomeViewController
+//- (NSMutableArray *)cellFrame
+//{
+//    if (_cellFrame == nil) {
+//        _cellFrame = [NSMutableArray array];
+//    }
+//    return _cellFrame;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,6 +52,7 @@
     //设置代理
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    
     [self.view addSubview:self.collectionView];
     
     //注册cell和ReusableView（相当于头部）
@@ -70,9 +79,22 @@
     // 3.发送请求
     [mgr GET:@"http://www.duitang.com/napi/index/hot/?include_fields=sender%2Calbum%2Cicon_url%2Creply_count%2Clike_count&platform_version=4.1.2&device_platform=8295&screen_width=540&screen_height=960&start=0&app_version=57&platform_name=Android&locale=zh&app_code=nayutas" parameters:nil
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         
          NSDictionary *data=responseObject[@"data"];
-         self.ObjectLists=[WZObjectLists objectArrayWithKeyValuesArray:data[@"object_list"]];
-
+         NSArray *statusArray=[WZObjectLists objectArrayWithKeyValuesArray:data[@"object_list"]];
+         // 创建frame模型对象
+         NSMutableArray *cellFrameArray = [NSMutableArray array];
+         for (WZObjectLists *status in statusArray) {
+             WZCellFrame *cellFrame = [[WZCellFrame alloc] init];
+             // 传递微博模型数据
+             cellFrame.objectLists = status;
+             [cellFrameArray addObject:cellFrame];
+         }
+         
+         // 赋值
+         self.cellFrame = cellFrameArray;
+//         WZObjectLists *ObjectList=self.ObjectLists[1];
+//         NSLog(@"%@",ObjectList);
         [self.collectionView reloadData];
 
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -84,7 +106,7 @@
 //定义展示的UICollectionViewCell的个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.ObjectLists.count;
+    return self.cellFrame.count;
 }
 //定义展示的Section的个数
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -100,40 +122,41 @@
     if (!cell) {
         NSLog(@"无法创建CollectionViewCell时打印，自定义的cell就不可能进来了。");
     }
-    //取出总的数据模型
-    WZObjectLists *ObjectList=self.ObjectLists[indexPath.row];
-    WZPhoto *photo=ObjectList.photo;
-    
-    //加载画报配图
-    NSMutableString *str = [[NSMutableString alloc]initWithCapacity:0];
-    [str appendString:[NSString stringWithFormat:@"%@",photo.path]];
-    NSRange range = [str rangeOfString:@"_webp"];
-    if (range.location == NSNotFound) {
-            NSLog(@"没有找到");
-     }else{
-    [str deleteCharactersInRange:range];
-    [cell.photo setImageWithURL:[NSURL URLWithString:str]placeholderImage:[UIImage imageNamed:@"image_default"]];
-     }
-    //加载画报配图描述
-    cell.msg.text = [NSString stringWithFormat:@"%@",ObjectList.msg];
-    
-    //加载画报的评论数
-    cell.replay_count.text=[NSString stringWithFormat:@"%@",ObjectList.reply_count];
-    
-    //加载画报的被赞数
-    cell.like_count.text=[NSString stringWithFormat:@"%@",ObjectList.like_count];
-    
-    //加载画报的收藏数
-    cell.favorite_count.text=[NSString stringWithFormat:@"%@",ObjectList.favorite_count];
-    
-    //加载画报的发布者头像
-    [cell.avator setImageWithURL:[NSURL URLWithString:ObjectList.sender.avatar]placeholderImage:[UIImage imageNamed:@"image_default"]];
-    
-    //加载画报的配图所属相册名称
-    cell.name.text=ObjectList.album.name;
-    
-    //加载画报的发布者昵称
-    cell.username.text=ObjectList.sender.username;
+    cell.cellFrame=self.cellFrame[indexPath.row];
+//    //取出总的数据模型
+//    WZObjectLists *ObjectList=self.ObjectLists[indexPath.row];
+//    WZPhoto *photo=ObjectList.photo;
+//    
+//    //加载画报配图
+//    NSMutableString *str = [[NSMutableString alloc]initWithCapacity:0];
+//    [str appendString:[NSString stringWithFormat:@"%@",photo.path]];
+//    NSRange range = [str rangeOfString:@"_webp"];
+//    if (range.location == NSNotFound) {
+//            NSLog(@"没有找到");
+//     }else{
+//    [str deleteCharactersInRange:range];
+//    [cell.photo setImageWithURL:[NSURL URLWithString:str]placeholderImage:[UIImage imageNamed:@"image_default"]];
+//     }
+//    //加载画报配图描述
+//    cell.msg.text = [NSString stringWithFormat:@"%@",ObjectList.msg];
+//
+//    //加载画报的评论数
+//    cell.replay_count.text=[NSString stringWithFormat:@"%@",ObjectList.reply_count];
+//    
+//    //加载画报的被赞数
+//    cell.like_count.text=[NSString stringWithFormat:@"%@",ObjectList.like_count];
+//    
+//    //加载画报的收藏数
+//    cell.favorite_count.text=[NSString stringWithFormat:@"%@",ObjectList.favorite_count];
+//    
+//    //加载画报的发布者头像
+//    [cell.avator setImageWithURL:[NSURL URLWithString:ObjectList.sender.avatar]placeholderImage:[UIImage imageNamed:@"image_default"]];
+//    
+//    //加载画报的配图所属相册名称
+//    cell.name.text=ObjectList.album.name;
+//    
+//    //加载画报的发布者昵称
+//    cell.username.text=ObjectList.sender.username;
     
     
     

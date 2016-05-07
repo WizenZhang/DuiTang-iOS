@@ -7,8 +7,32 @@
 //
 
 #import "WZCollectionViewCell.h"
+#import "WZTopView.h"
+#import "WZMiddleToolBar.h"
+#import "WZBottomView.h"
+#import "WZCellFrame.h"
+#import "WZObjectLists.h"
+#import "WZPhoto.h"
+#import "WZAlbum.h"
+#import "WZSender.h"
 
+
+
+
+@interface WZCollectionViewCell ()
+/** 画报顶部的view */
+@property (nonatomic, weak) WZTopView *topView;
+
+/** 画报中部的工具条 */
+@property (nonatomic, weak) WZMiddleToolBar *middleToolBar;
+
+/** 画报底部的view */
+@property (nonatomic, weak) WZBottomView *bottomView;
+@end
 @implementation WZCollectionViewCell
+
+#pragma mark - 初始化
+
 - (id)initWithFrame:(CGRect)frame
 {
     
@@ -16,70 +40,52 @@
     if (self) {
         
 //      self.backgroundColor = [UIColor purpleColor];
-        
-        //画报的配图
-        self.photo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, (DeviceWidth/2)-10, 260)];
-        self.photo.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        [self addSubview:self.photo];
-        
-        //画报的配图描述
-        self.msg = [[UILabel alloc]initWithFrame:CGRectMake(5, CGRectGetMaxY(self.photo.frame), CGRectGetWidth(self.frame)-10, 45)];
-//        self.msg.textAlignment = NSTextAlignmentCenter;
-        self.msg.numberOfLines=0;
-        [self addSubview:self.msg];
-        
-        //画报的评论图片
-        self.replay_countP = [[UIImageView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.msg.frame), 18, 18)];
-        [self.replay_countP setImage:[UIImage imageNamed:@"blog_list_icon_comments"]];
-        [self addSubview:self.replay_countP];
        
-        //画报的评论数
-        self.replay_count = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.replay_countP.frame), CGRectGetMaxY(self.msg.frame), 25, 25)];
-        self.replay_count.textAlignment = NSTextAlignmentCenter;
-        self.replay_count.numberOfLines=0;
-        [self addSubview:self.replay_count];
+        // 1.添加上部配图的view
+        [self setupTopView];
         
-        //画报的被赞图片
-        self.like_countP = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.replay_count.frame), CGRectGetMaxY(self.msg.frame), 18, 18)];
-        [self.like_countP setImage:[UIImage imageNamed:@"blog_list_icon_good"]];
-        [self addSubview:self.like_countP];
-
-        //画报的被赞数
-        self.like_count = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.like_countP.frame), CGRectGetMaxY(self.msg.frame), 25, 25)];
-        self.like_count.textAlignment = NSTextAlignmentCenter;
-        self.like_count.numberOfLines=0;
-        [self addSubview:self.like_count];
+        // 2.添加中部的工具条
+        [self setupMiddleToolBar];
         
-        //画报的收藏图片
-        self.favorite_countP = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.like_count.frame), CGRectGetMaxY(self.msg.frame), 18, 18)];
-        [self.favorite_countP setImage:[UIImage imageNamed:@"blog_list_icon_star"]];
-        [self addSubview:self.favorite_countP];
-
-        //画报的收藏数
-        self.favorite_count = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.favorite_countP.frame), CGRectGetMaxY(self.msg.frame), 25, 25)];
-        self.favorite_count.textAlignment = NSTextAlignmentCenter;
-        self.favorite_count.numberOfLines=0;
-        [self addSubview:self.favorite_count];
+        // 3.添加下部的发布者View
+        [self setupBottomView];    
         
-        //分割线
-        self.line=[[UIView alloc]initWithFrame:CGRectMake(0,CGRectGetMaxY(self.favorite_count.frame), (DeviceWidth/2)-10, 1)];
-        self.line.backgroundColor=[UIColor grayColor];
-        [self addSubview:self.line];
-        
-        //画报的发布者头像
-        self.avator = [[UIImageView alloc]initWithFrame:CGRectMake(5, CGRectGetMaxY(self.line.frame)+5, 40, 40)];
-        self.avator.backgroundColor=[UIColor blueColor];
-        [self addSubview:self.avator];
-        
-        //画报的所属相册名称
-        self.name = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.avator.frame)+5, CGRectGetMaxY(self.line.frame)+5, 87, 16)];
-        [self addSubview:self.name];
-        
-        //画报的发布者昵称
-        self.username = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.avator.frame)+5, CGRectGetMaxY(self.name.frame)+5, 87, 16)];
-        [self addSubview:self.username];
     }
     return self;
 }
+- (void)setupTopView
+{
+    WZTopView *topView=[[WZTopView alloc]init];
+    [self addSubview:topView];
+    self.topView=topView;
+    
+}
+- (void)setupMiddleToolBar
+{
+    WZMiddleToolBar *middleView=[[WZMiddleToolBar alloc]init];
+    [self addSubview:middleView];
+    self.middleToolBar=middleView;
 
+}
+- (void)setupBottomView
+{
+    WZBottomView *bottomView=[[WZBottomView alloc]init];
+    [self addSubview:bottomView];
+    self.bottomView=bottomView;
+}
+- (void)setCellFrame:(WZCellFrame *)cellFrame
+{
+    _cellFrame=cellFrame;
+    
+    // 1.topView
+    self.topView.frame=self.cellFrame.topViewF;
+    self.topView.cellFrame=self.cellFrame;
+    
+    //
+    self.middleToolBar.frame=self.cellFrame.middleToolBarF;
+    self.middleToolBar.cellFrame=self.cellFrame;
+    //
+    self.bottomView.frame=self.cellFrame.bottomViewF;
+    self.bottomView.cellFrame=self.cellFrame;
+}
 @end
