@@ -83,7 +83,7 @@
     
     //
     self.middleToolBar.frame=self.cellFrame.middleToolBarF;
-    self.middleToolBar.cellFrame=self.cellFrame;
+    self.middleToolBar.objectLists=self.cellFrame.objectLists;
     //
     self.bottomView.frame=self.cellFrame.bottomViewF;
     self.bottomView.cellFrame=self.cellFrame;

@@ -7,82 +7,96 @@
 //
 
 #import "WZMiddleToolBar.h"
+#import "WZObjectLists.h"
+
 /**画报的工具条字体*/
 #define ToolBarFont [UIFont systemFontOfSize:13]
 @interface WZMiddleToolBar ()
 
-//画报的评论图片
-@property(nonatomic ,weak)UIImageView *replay_countP;
 //画报的评论数
-@property(nonatomic ,weak)UILabel *replay_count;
-//画报的被赞图片
-@property(nonatomic ,weak)UIImageView *like_countP;
+@property (nonatomic, weak) UIButton *replay_count;
 //画报的被赞数
-@property(nonatomic ,weak)UILabel *like_count;
-//画报的收藏图片
-@property(nonatomic ,weak)UIImageView  *favorite_countP;
+@property(nonatomic ,weak)UIButton *like_count;
 //画报的收藏数
-@property(nonatomic ,weak)UILabel *favorite_count;
+@property(nonatomic ,weak) UIButton *favorite_count;
 //分割线
 @property(nonatomic ,weak)UIView *line;
-
 @end
 @implementation WZMiddleToolBar
 
+- (void)setObjectLists:(WZObjectLists *)objectLists
+{
+    _objectLists=objectLists;
+    
+    //设置数据
+    [self setupBtn:self.replay_count Title:objectLists.reply_count];
+    [self setupBtn:self.like_count Title:objectLists.like_count];
+    [self setupBtn:self.favorite_count Title:objectLists.favorite_count];
+}
+
+- (void)setupBtn:(UIButton *)btn Title:(int)title
+{
+    //初始化按钮title
+    NSString *str=[NSString stringWithFormat:@"%d",title];
+    [btn setTitle:str forState:UIControlStateNormal];
+}
+
+- (void)layoutSubviews
+{
+    
+   [super layoutSubviews];
+    
+     // 1.设置按钮的frame
+    CGFloat btnW = self.frame.size.width  / self.subviews.count;
+    CGFloat btnH = self.frame.size.height;
+    CGFloat btnY = 0;
+    for (int i = 0; i<self.subviews.count; i++) {
+        UIButton *btn = self.subviews[i];
+        
+        // 设置frame
+        CGFloat btnX = i * btnW ;
+        btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
+    }
+    //2.分割线
+    self.line.backgroundColor=[UIColor grayColor];
+    CGFloat lineY = self.frame.size.height-1;
+    CGFloat lineW = self.frame.size.width;
+    self.line.frame=CGRectMake(0, lineY, lineW, 1);
+
+}
+
+- (UIButton *)setupWithbgImage:(NSString *)bgimage
+{
+    //初始化按钮
+    UIButton *btn=[[UIButton alloc]init];
+    [btn setImage:[UIImage imageNamed:bgimage] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:13];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self addSubview:btn];
+    return btn;
+    
+}
 - (id)initWithFrame:(CGRect)frame
 {
     
     self=[super initWithFrame:frame];
     if (self) {
         
-//        self.backgroundColor=[UIColor blueColor];
-//        self.frame=CGRectMake(0, 310,(DeviceWidth/2)-10, 40);
-        
-        //画报的评论图片
-        
-        
-//        //画报的评论图片
-//        self.replay_countP = [[UIImageView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.msg.frame), 18, 18)];
-//        [self.replay_countP setImage:[UIImage imageNamed:@"blog_list_icon_comments"]];
-//        [self addSubview:self.replay_countP];
-//        
-//        //画报的评论数
-//        self.replay_count = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.replay_countP.frame), CGRectGetMaxY(self.msg.frame), 25, 25)];
-//        self.replay_count.textAlignment = NSTextAlignmentCenter;
-//        self.replay_count.numberOfLines=0;
-//        self.replay_count.font=ToolBarFont;
-//        [self addSubview:self.replay_count];
-//        
-//        //画报的被赞图片
-//        self.like_countP = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.replay_count.frame), CGRectGetMaxY(self.msg.frame), 18, 18)];
-//        [self.like_countP setImage:[UIImage imageNamed:@"blog_list_icon_good"]];
-//        [self addSubview:self.like_countP];
-//        
-//        //画报的被赞数
-//        self.like_count = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.like_countP.frame), CGRectGetMaxY(self.msg.frame), 25, 25)];
-//        self.like_count.textAlignment = NSTextAlignmentCenter;
-//        self.like_count.numberOfLines=0;
-//        self.like_count.font=ToolBarFont;
-//        [self addSubview:self.like_count];
-//        
-//        //画报的收藏图片
-//        self.favorite_countP = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.like_count.frame), CGRectGetMaxY(self.msg.frame), 18, 18)];
-//        [self.favorite_countP setImage:[UIImage imageNamed:@"blog_list_icon_star"]];
-//        [self addSubview:self.favorite_countP];
-//        
-//        //画报的收藏数
-//        self.favorite_count = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.favorite_countP.frame), CGRectGetMaxY(self.msg.frame), 25, 25)];
-//        self.favorite_count.textAlignment = NSTextAlignmentCenter;
-//        self.favorite_count.numberOfLines=0;
-//        self.favorite_count.font=ToolBarFont;
-//        [self addSubview:self.favorite_count];
-//        
-//        //分割线
-//        self.line=[[UIView alloc]initWithFrame:CGRectMake(0,CGRectGetMaxY(self.favorite_count.frame), (DeviceWidth/2)-10, 1)];
-//        self.line.backgroundColor=[UIColor grayColor];
-//        [self addSubview:self.line];
+        //画报的评论数按钮
+        self.replay_count=[self setupWithbgImage:@"blog_list_icon_comments"];
 
-    }
+        // 画报的被赞数按钮
+        self.like_count=[self setupWithbgImage:@"blog_list_icon_good"];
+
+        // 画报的收藏数按钮
+        self.favorite_count=[self setupWithbgImage:@"blog_list_icon_star"];
+        
+        //分割线
+        UIView *line=[[UIView alloc]init];
+        [self addSubview:line];
+        self.line=line;
+        
+     }
     return self;
 }
 

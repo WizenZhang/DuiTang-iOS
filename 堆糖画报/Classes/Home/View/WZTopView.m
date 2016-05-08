@@ -53,7 +53,7 @@
         
 //        self.backgroundColor=[UIColor purpleColor];
         
-         // 画报的配图
+        // 画报的配图
         UIImageView *photo=[[UIImageView alloc]init];
         [self addSubview:photo];
         self.photo=photo;

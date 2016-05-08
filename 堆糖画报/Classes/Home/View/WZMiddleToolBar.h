@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class WZCellFrame;
+@class WZObjectLists;
 @interface WZMiddleToolBar : UIImageView
-@property(nonatomic,strong)WZCellFrame *cellFrame;
+@property(nonatomic,strong)WZObjectLists *objectLists;
 @end

@@ -24,15 +24,15 @@
 /**
  *  画报的评论数
  */
-@property (nonatomic, copy) NSString *reply_count;
+@property (nonatomic, assign) int reply_count;
 /**
  *  画报的被赞数
  */
-@property (nonatomic, copy) NSString *like_count;
+@property (nonatomic, assign) int like_count;
 /**
  *  画报的收藏数
  */
-@property (nonatomic, copy) NSString *favorite_count;
+@property (nonatomic, assign) int favorite_count;
 /**
  *  画报的发布者信息（数组中装模型:WZSender)
  */

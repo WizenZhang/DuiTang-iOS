@@ -42,7 +42,7 @@
     self.name.frame=self.cellFrame.nameF;
    
     // 4.画报的发布者昵称
-    self.username.text=[NSString stringWithFormat:@"%@",sender.username];
+    self.username.text=[NSString stringWithFormat:@"by:%@",sender.username];
     self.username.frame=self.cellFrame.usernameF;
     
 }
@@ -68,6 +68,7 @@
         UILabel *username=[[UILabel alloc]init];
         username.font = NameFont;
         username.numberOfLines=0;
+        username.textColor=[UIColor grayColor];
         [self addSubview:username];
         self.username=username;
             
