@@ -7,16 +7,6 @@
 //
 
 #import "WZCollectionViewCell.h"
-#import "WZTopView.h"
-#import "WZMiddleToolBar.h"
-#import "WZBottomView.h"
-#import "WZCellFrame.h"
-#import "WZObjectLists.h"
-#import "WZPhoto.h"
-#import "WZAlbum.h"
-#import "WZSender.h"
-
-
 
 
 @interface WZCollectionViewCell ()
@@ -33,6 +23,13 @@
 
 #pragma mark - 初始化
 
++ (instancetype)cellWithCollectionView:(UICollectionView *)collectionView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
+{  
+    static NSString *identify = @"cell";
+    WZCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
+     return cell;
+}
 - (id)initWithFrame:(CGRect)frame
 {
     
@@ -40,7 +37,7 @@
     if (self) {
         
 //      self.backgroundColor = [UIColor purpleColor];
-       
+        
         // 1.添加上部配图的view
         [self setupTopView];
         
@@ -56,28 +53,35 @@
 - (void)setupTopView
 {
     WZTopView *topView=[[WZTopView alloc]init];
-    [self addSubview:topView];
     self.topView=topView;
+    [self addSubview:self.topView];
+    
     
 }
 - (void)setupMiddleToolBar
 {
     WZMiddleToolBar *middleView=[[WZMiddleToolBar alloc]init];
-    [self addSubview:middleView];
     self.middleToolBar=middleView;
+    [self addSubview:self.middleToolBar];
+    
 
 }
 - (void)setupBottomView
 {
     WZBottomView *bottomView=[[WZBottomView alloc]init];
-    [self addSubview:bottomView];
     self.bottomView=bottomView;
+    [self addSubview:self.bottomView];
+    
 }
 - (void)setCellFrame:(WZCellFrame *)cellFrame
 {
     _cellFrame=cellFrame;
-    
+    self.backgroundColor=[UIColor whiteColor];
+
     // 1.topView
+    self.topView.clipsToBounds = YES;
+    self.topView.layer.cornerRadius =5;
+
     self.topView.frame=self.cellFrame.topViewF;
     self.topView.cellFrame=self.cellFrame;
     
@@ -87,5 +91,6 @@
     //
     self.bottomView.frame=self.cellFrame.bottomViewF;
     self.bottomView.cellFrame=self.cellFrame;
+    
 }
 @end

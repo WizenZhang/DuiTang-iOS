@@ -24,6 +24,22 @@
 //3.设备宽度和高度
 #define DeviceWidth 375
 #define DeviceHeight 647
-#endif
 
+
+/**字体设置*/
+/**画报的名称字体*/
+#define NameFont [UIFont systemFontOfSize:13]
+
+/**画报的配图描述字体*/
+#define MsgFont [UIFont systemFontOfSize:13]
+
+/**画报的工具条字体*/
+#define ToolBarFont [UIFont systemFontOfSize:13]
+/** 边框宽度 */
+#define WZBorder 5
+
+//头部Height
+#define headHeight 230
+
+#endif
 #endif

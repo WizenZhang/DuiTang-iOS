@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 @class WZObjectLists;
 @interface WZMiddleToolBar : UIImageView
+
 @property(nonatomic,strong)WZObjectLists *objectLists;
 @end

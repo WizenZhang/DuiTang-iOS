@@ -9,8 +9,7 @@
 #import "WZMiddleToolBar.h"
 #import "WZObjectLists.h"
 
-/**画报的工具条字体*/
-#define ToolBarFont [UIFont systemFontOfSize:13]
+
 @interface WZMiddleToolBar ()
 
 //画报的评论数
@@ -61,7 +60,7 @@
     self.line.backgroundColor=[UIColor grayColor];
     CGFloat lineY = self.frame.size.height-1;
     CGFloat lineW = self.frame.size.width;
-    self.line.frame=CGRectMake(0, lineY, lineW, 1);
+    self.line.frame=CGRectMake(WZBorder, lineY, lineW, 1);
 
 }
 
@@ -93,8 +92,9 @@
         
         //分割线
         UIView *line=[[UIView alloc]init];
-        [self addSubview:line];
         self.line=line;
+        [self addSubview:self.line];
+        
         
      }
     return self;

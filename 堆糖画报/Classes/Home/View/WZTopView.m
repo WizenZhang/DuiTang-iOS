@@ -11,8 +11,7 @@
 #import "WZObjectLists.h"
 #import "WZPhoto.h"
 #import "UIImageView+WebCache.h"
-/**画报的配图描述字体*/
-#define MsgFont [UIFont systemFontOfSize:13]
+
 @interface WZTopView()
 /**画报的配图*/
 @property(nonatomic ,weak)UIImageView *photo;
@@ -30,19 +29,25 @@
     WZPhoto *photo=objectList.photo;
     
     // 2.画报的配图
+    
     NSMutableString *str = [[NSMutableString alloc]initWithCapacity:0];
     [str appendString:[NSString stringWithFormat:@"%@",photo.path]];
     NSRange range = [str rangeOfString:@"_webp"];
     if (range.location == NSNotFound) {
-         NSLog(@"没有找到");
+//         NSLog(@"没有找到");
+//        NSLog(@"%@",photo.path);
     }else{
     [str deleteCharactersInRange:range];
+     
     [self.photo setImageWithURL:[NSURL URLWithString:str]placeholderImage:[UIImage imageNamed:@"image_default"]];
     }
+    self.photo.clipsToBounds = YES;
+    self.photo.layer.cornerRadius =5;
     self.photo.frame=self.cellFrame.photoF;
-    
+
     //3.画报的配图描述
     self.msg.text=[NSString stringWithFormat:@"%@",objectList.msg];
+    
     self.msg.frame=self.cellFrame.msgF;
 }
 - (id)initWithFrame:(CGRect)frame
@@ -51,20 +56,20 @@
     self=[super initWithFrame:frame];
     if (self) {
         
-//        self.backgroundColor=[UIColor purpleColor];
-        
         // 画报的配图
         UIImageView *photo=[[UIImageView alloc]init];
-        [self addSubview:photo];
         self.photo=photo;
-       
+        [self addSubview:self.photo];
+        
+        
         //画报的配图描述
         UILabel *msg=[[UILabel alloc]init];
         msg.font = MsgFont;
         msg.numberOfLines=0;
-        [self addSubview:msg];
         self.msg=msg;
-
+        [self addSubview:self.msg];
+        
+        
     }
     return self;
 }

@@ -12,8 +12,7 @@
 #import "WZSender.h"
 #import "UIImageView+WebCache.h"
 #import "WZAlbum.h"
-/**画报的名称字体*/
-#define NameFont [UIFont systemFontOfSize:13]
+
 
 @interface WZBottomView ()
 //画报的发布者头像
@@ -35,6 +34,8 @@
     
     // 2.画报的发布者头像
     [self.avator setImageWithURL:[NSURL URLWithString:sender.avatar]placeholderImage:[UIImage imageNamed:@"image_default"]];
+    self.avator.clipsToBounds = YES;
+    self.avator.layer.cornerRadius =5;
     self.avator.frame=self.cellFrame.avatorF;
     
     // 3.画报的所属相册名称

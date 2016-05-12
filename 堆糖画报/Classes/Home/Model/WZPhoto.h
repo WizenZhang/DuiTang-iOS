@@ -16,10 +16,10 @@
 ///**
 // *  画报的配图宽度
 // */
-@property (nonatomic, weak) NSNumber *width;
+@property (nonatomic, assign)int width;
 ///**
 // *  画报的配图高度
 // */
-@property (nonatomic, weak) NSNumber *height;
+@property (nonatomic, assign)int height;
 
 @end

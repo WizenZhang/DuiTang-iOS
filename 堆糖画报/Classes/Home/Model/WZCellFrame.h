@@ -42,6 +42,10 @@
 //画报的发布者昵称
 @property(nonatomic ,assign, readonly) CGRect usernameF;
 /* cell的高度 */
-@property (nonatomic, assign, readonly) CGFloat cellHeight;
+@property (nonatomic, assign, readonly) CGFloat cellH;
+/* cell的Size */
+@property (nonatomic, assign, readonly) CGSize cellS;
+/* cell的Frame */
+@property (nonatomic, assign, readonly) CGRect cellF;
 
 @end

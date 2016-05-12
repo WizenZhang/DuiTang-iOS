@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 @class WZCellFrame;
 @interface WZTopView : UIImageView
+
 @property(nonatomic,strong)WZCellFrame *cellFrame;
 @end
