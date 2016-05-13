@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface WZAlbum : NSObject
+#import "JSONModel.h"
+@interface WZAlbum : JSONModel
 /**
  *  画报的所属相册名称 */
 @property (nonatomic, copy) NSString *name;

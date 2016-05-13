@@ -7,10 +7,12 @@
 //
 
 #import "WZTabBarController.h"
+#import "WZNavigationController.h"
 #import "WZHomeViewController.h"
 #import "WZSortViewController.h"
 #import "WZStoreViewController.h"
 #import "WZTabBar.h"
+
 @interface WZTabBarController () <WZTabBarDelegate>
 /**
  *  自定义的tabbar
@@ -107,7 +109,7 @@
     }
     
     // 2.包装一个导航控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+    WZNavigationController *nav = [[WZNavigationController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
     
     // 3.添加tabbar内部的按钮

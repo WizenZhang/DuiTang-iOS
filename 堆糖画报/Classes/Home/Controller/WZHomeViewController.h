@@ -1,5 +1,5 @@
 //
-//  WZHomeViewController.h
+//  WZCollectionViewController.h
 //  堆糖画报
 //
 //  Created by Wizen Zhang on 16/5/12.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class WZCollectionViewController;
-@interface WZHomeViewController : UIViewController
-@property (nonatomic,strong) WZCollectionViewController *waterfall;
+
+@interface WZHomeViewController : UICollectionViewController
+
 @end

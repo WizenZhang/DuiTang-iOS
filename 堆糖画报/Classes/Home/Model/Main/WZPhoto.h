@@ -7,19 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface WZPhoto : NSObject
+#import "JSONModel.h"
+@interface WZPhoto : JSONModel
 /**
  *  画报的配图路径
  */
 @property (nonatomic, copy) NSString *path;
-///**
-// *  画报的配图宽度
-// */
+/**
+ *  画报的配图宽度
+ */
 @property (nonatomic, assign)int width;
-///**
-// *  画报的配图高度
-// */
+/**
+ *  画报的配图高度
+ */
 @property (nonatomic, assign)int height;
 
 @end

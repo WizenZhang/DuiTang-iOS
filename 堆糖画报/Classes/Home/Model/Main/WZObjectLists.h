@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSONModel.h"
 @class WZPhoto;
 @class WZAlbum;
 @class WZSender;
+@class WZRelatedAlbum;
 
-@interface WZObjectLists : NSObject
+@interface WZObjectLists : JSONModel
 
 /**
  *  画报的配图信息(数组中装模型:WZPhoto)
@@ -41,6 +43,13 @@
  *  画报的配图所属相册信息(数组中装模型:WZAlbum)
  */
 @property (nonatomic, strong) WZAlbum *album;
-
+/**
+ *  画报的评论数
+ */
+@property (nonatomic, assign) NSString *add_datetime_pretty;
+/**
+ *  画报的配图相关相册信息(数组中装模型:WZRelatedAlbums)
+ */
+//@property (nonatomic, strong) WZRelatedAlbum *related_albums;
 
 @end
