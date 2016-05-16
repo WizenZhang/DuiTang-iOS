@@ -30,6 +30,7 @@
     WZCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
      return cell;
 }
+
 - (id)initWithFrame:(CGRect)frame
 {
     
@@ -37,7 +38,8 @@
     if (self) {
         
 //      self.backgroundColor = [UIColor purpleColor];
-        
+        self.clipsToBounds = YES;
+        self.layer.cornerRadius =5;
         // 1.添加上部配图的view
         [self setupTopView];
         
@@ -76,7 +78,7 @@
 - (void)setCellFrame:(WZCellFrame *)cellFrame
 {
     _cellFrame=cellFrame;
-    self.backgroundColor=[UIColor whiteColor];
+//    self.backgroundColor=[UIColor redColor];
 
     // 1.topView
     self.topView.clipsToBounds = YES;
@@ -85,10 +87,14 @@
     self.topView.frame=self.cellFrame.topViewF;
     self.topView.cellFrame=self.cellFrame;
     
-    //
+    //2.middleToolBar
     self.middleToolBar.frame=self.cellFrame.middleToolBarF;
     self.middleToolBar.objectLists=self.cellFrame.objectLists;
-    //
+    
+    //3.bottomView
+    self.bottomView.clipsToBounds = YES;
+    self.bottomView.layer.cornerRadius =5;
+    
     self.bottomView.frame=self.cellFrame.bottomViewF;
     self.bottomView.cellFrame=self.cellFrame;
     

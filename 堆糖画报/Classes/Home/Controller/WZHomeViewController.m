@@ -29,6 +29,7 @@
 
 @interface WZHomeViewController () <MJRefreshBaseViewDelegate>
 @property(nonatomic,strong)NSMutableArray *cellFrame;
+@property(nonatomic,strong)NSMutableArray *datasArray;
 @property (nonatomic, strong) WZCollectionViewCell *cell;
 @property (nonatomic, weak) MJRefreshFooterView *footer;
 @property (nonatomic, weak) MJRefreshHeaderView *header;
@@ -45,10 +46,15 @@
 - (id)init
 {
     WaterFLayout *flowLayout = [[WaterFLayout alloc]init];
+    //设置cell之间的垂直距离
+    flowLayout.minimumInteritemSpacing=WZBorder;
+    //设置cell之间的水平距离
+    flowLayout.minimumColumnSpacing=WZBorder;
     self = [super initWithCollectionViewLayout:flowLayout];
     if (self)
     {
-        self.collectionView.backgroundColor=[UIColor whiteColor];
+        
+        self.collectionView.backgroundColor=WZColor(223, 224, 225);
         self.collectionView.frame=CGRectMake(0, 0, DeviceWidth, DeviceHeight);
         [self.collectionView registerClass:[WZCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
         [self.collectionView registerClass:[WaterFallHeader class]  forSupplementaryViewOfKind:WaterFallSectionHeader withReuseIdentifier:@"WaterFallSectionHeader"];
@@ -159,6 +165,7 @@
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          
          NSDictionary *data=responseObject[@"data"];
+         
          NSArray *statusArray=[WZObjectLists objectArrayWithKeyValuesArray:data[@"object_list"]];
          // 创建frame模型对象
          NSMutableArray *cellFrameArray = [NSMutableArray array];
@@ -243,10 +250,13 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //select Item
-    WZMainDetailController *vc = [[WZMainDetailController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    WZMainDetailController *detail = [[WZMainDetailController alloc] init];
     
-    NSLog(@"row= %li,section = %li",(long)indexPath.item,(long)indexPath.section);
+    WZCellFrame *cellFrame=self.cellFrame[indexPath.item];
+    detail.datas=cellFrame.objectLists;
+    [self.navigationController pushViewController:detail animated:YES];
+
+//    NSLog(@"row= %li,section = %li",(long)indexPath.item,(long)indexPath.section);
 }
 /**返回这个UICollectionView是否可以被选择*/
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath

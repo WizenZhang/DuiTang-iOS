@@ -53,7 +53,8 @@
 {
     // 取出appearance对象
     UINavigationBar *navBar = [UINavigationBar appearance];
-    
+    // 设置颜色属性
+    navBar.tintColor=[UIColor lightGrayColor];
     // 设置标题属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[UITextAttributeTextColor] = [UIColor blackColor];

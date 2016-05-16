@@ -52,7 +52,7 @@
     
         self=[super initWithFrame:frame];
         if (self) {
-    
+        self.backgroundColor=[UIColor whiteColor];
         //画报的发布者头像
         UIImageView *avator=[[UIImageView alloc]init];
         [self addSubview:avator];
@@ -60,15 +60,15 @@
             
         //画报的所属相册名称
         UILabel *name=[[UILabel alloc]init];
-        name.font = NameFont;
-        name.numberOfLines=0;
+        name.font = MainNameFont;
+//        name.numberOfLines=0;
         [self addSubview:name];
         self.name=name;
             
         //画报的发布者昵称
         UILabel *username=[[UILabel alloc]init];
-        username.font = NameFont;
-        username.numberOfLines=0;
+        username.font = MainNameFont;
+//        username.numberOfLines=0;
         username.textColor=[UIColor grayColor];
         [self addSubview:username];
         self.username=username;

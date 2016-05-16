@@ -27,11 +27,17 @@
 
 
 /**字体设置*/
+/**主页画报的名称字体*/
+#define MainNameFont [UIFont boldSystemFontOfSize:13]
+
 /**画报的名称字体*/
-#define NameFont [UIFont systemFontOfSize:13]
+#define NameFont [UIFont boldSystemFontOfSize:16]
+
+/**画报的日期字体*/
+#define DateFont [UIFont systemFontOfSize:13]
 
 /**画报的配图描述字体*/
-#define MsgFont [UIFont systemFontOfSize:13]
+#define MsgFont [UIFont systemFontOfSize:14]
 
 /**画报的工具条字体*/
 #define ToolBarFont [UIFont systemFontOfSize:13]

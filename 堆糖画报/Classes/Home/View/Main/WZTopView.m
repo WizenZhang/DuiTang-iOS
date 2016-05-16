@@ -41,8 +41,7 @@
      
     [self.photo setImageWithURL:[NSURL URLWithString:str]placeholderImage:[UIImage imageNamed:@"image_default"]];
     }
-    self.photo.clipsToBounds = YES;
-    self.photo.layer.cornerRadius =5;
+
     self.photo.frame=self.cellFrame.photoF;
 
     //3.画报的配图描述
@@ -55,7 +54,7 @@
     
     self=[super initWithFrame:frame];
     if (self) {
-        
+        self.backgroundColor=[UIColor whiteColor];
         // 画报的配图
         UIImageView *photo=[[UIImageView alloc]init];
         self.photo=photo;

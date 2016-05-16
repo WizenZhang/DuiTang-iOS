@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		A14D5F021CE5B638003CA9B3 /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = A14D5F011CE5B638003CA9B3 /* NSDate+MJ.m */; };
 		A14D5F051CE5BD54003CA9B3 /* WZMainDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A14D5F041CE5BD54003CA9B3 /* WZMainDetailController.m */; };
-		A156FD411CE61DA500D7F254 /* WZRelatedAlbums.m in Sources */ = {isa = PBXBuildFile; fileRef = A156FD401CE61DA500D7F254 /* WZRelatedAlbums.m */; };
 		A156FD441CE61F3C00D7F254 /* WZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A156FD431CE61F3C00D7F254 /* WZUser.m */; };
-		A156FD471CE6232F00D7F254 /* WZRelatedAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = A156FD461CE6232F00D7F254 /* WZRelatedAlbum.m */; };
 		A16367621CE55FDC002FD6AD /* WZNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A16367611CE55FDC002FD6AD /* WZNavigationController.m */; };
 		A16367731CE57B63002FD6AD /* WZHomeHeadData.m in Sources */ = {isa = PBXBuildFile; fileRef = A16367651CE57B63002FD6AD /* WZHomeHeadData.m */; };
 		A16367741CE57B63002FD6AD /* WZAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = A16367691CE57B63002FD6AD /* WZAlbum.m */; };
@@ -92,7 +90,12 @@
 		A1E0EFEE1CDDC72100EC9501 /* UIBarButtonItem+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E0EFEB1CDDC72100EC9501 /* UIBarButtonItem+MJ.m */; };
 		A1E0EFEF1CDDC72100EC9501 /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E0EFED1CDDC72100EC9501 /* UIImage+MJ.m */; };
 		A1E5BFA61CDA303A00E026EF /* NSYearToWeek+WZ.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E5BFA51CDA303A00E026EF /* NSYearToWeek+WZ.m */; };
+		A1E6F6C61CE6ACD6009346E7 /* WZRelatedAlbums.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6F6C51CE6ACD6009346E7 /* WZRelatedAlbums.m */; };
+		A1E6F6D21CE6D09E009346E7 /* WZFirstRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6F6D11CE6D09E009346E7 /* WZFirstRowCell.m */; };
+		A1E6F6D81CE6D103009346E7 /* WZThirdRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6F6D71CE6D102009346E7 /* WZThirdRowCell.m */; };
+		A1E6F6DB1CE6D163009346E7 /* WZSecondRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6F6DA1CE6D163009346E7 /* WZSecondRowCell.m */; };
 		A1EB3C2E1CE42E33008F44B4 /* WZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB3C2D1CE42E33008F44B4 /* WZHomeViewController.m */; };
+		A1F31A491CE72E0A00590B8F /* WZDetailCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F31A481CE72E0A00590B8F /* WZDetailCellFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,12 +113,8 @@
 		A14D5F011CE5B638003CA9B3 /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MJ.m"; sourceTree = "<group>"; };
 		A14D5F031CE5BD54003CA9B3 /* WZMainDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMainDetailController.h; sourceTree = "<group>"; };
 		A14D5F041CE5BD54003CA9B3 /* WZMainDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMainDetailController.m; sourceTree = "<group>"; };
-		A156FD3F1CE61DA500D7F254 /* WZRelatedAlbums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WZRelatedAlbums.h; path = ../../../../../../../Documents/WZRelatedAlbums.h; sourceTree = "<group>"; };
-		A156FD401CE61DA500D7F254 /* WZRelatedAlbums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WZRelatedAlbums.m; path = ../../../../../../../Documents/WZRelatedAlbums.m; sourceTree = "<group>"; };
 		A156FD421CE61F3C00D7F254 /* WZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZUser.h; sourceTree = "<group>"; };
 		A156FD431CE61F3C00D7F254 /* WZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZUser.m; sourceTree = "<group>"; };
-		A156FD451CE6232F00D7F254 /* WZRelatedAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WZRelatedAlbum.h; path = ../../../../../../../Documents/WZRelatedAlbum.h; sourceTree = "<group>"; };
-		A156FD461CE6232F00D7F254 /* WZRelatedAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WZRelatedAlbum.m; path = ../../../../../../../Documents/WZRelatedAlbum.m; sourceTree = "<group>"; };
 		A16367601CE55FDC002FD6AD /* WZNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZNavigationController.h; sourceTree = "<group>"; };
 		A16367611CE55FDC002FD6AD /* WZNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZNavigationController.m; sourceTree = "<group>"; };
 		A16367641CE57B63002FD6AD /* WZHomeHeadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZHomeHeadData.h; sourceTree = "<group>"; };
@@ -280,8 +279,18 @@
 		A1E5BFA41CDA303A00E026EF /* NSYearToWeek+WZ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSYearToWeek+WZ.h"; sourceTree = "<group>"; };
 		A1E5BFA51CDA303A00E026EF /* NSYearToWeek+WZ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSYearToWeek+WZ.m"; sourceTree = "<group>"; };
 		A1E5BFA91CDA443E00E026EF /* WZNetInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZNetInterface.h; sourceTree = "<group>"; };
+		A1E6F6C41CE6ACD6009346E7 /* WZRelatedAlbums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZRelatedAlbums.h; sourceTree = "<group>"; };
+		A1E6F6C51CE6ACD6009346E7 /* WZRelatedAlbums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZRelatedAlbums.m; sourceTree = "<group>"; };
+		A1E6F6D01CE6D09E009346E7 /* WZFirstRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZFirstRowCell.h; sourceTree = "<group>"; };
+		A1E6F6D11CE6D09E009346E7 /* WZFirstRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZFirstRowCell.m; sourceTree = "<group>"; };
+		A1E6F6D61CE6D102009346E7 /* WZThirdRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZThirdRowCell.h; sourceTree = "<group>"; };
+		A1E6F6D71CE6D102009346E7 /* WZThirdRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZThirdRowCell.m; sourceTree = "<group>"; };
+		A1E6F6D91CE6D163009346E7 /* WZSecondRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZSecondRowCell.h; sourceTree = "<group>"; };
+		A1E6F6DA1CE6D163009346E7 /* WZSecondRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZSecondRowCell.m; sourceTree = "<group>"; };
 		A1EB3C2C1CE42E33008F44B4 /* WZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZHomeViewController.h; sourceTree = "<group>"; };
 		A1EB3C2D1CE42E33008F44B4 /* WZHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZHomeViewController.m; sourceTree = "<group>"; };
+		A1F31A471CE72E0A00590B8F /* WZDetailCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZDetailCellFrame.h; sourceTree = "<group>"; };
+		A1F31A481CE72E0A00590B8F /* WZDetailCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZDetailCellFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +330,8 @@
 		A16367671CE57B63002FD6AD /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A163676A1CE57B63002FD6AD /* WZCellFrame.h */,
+				A163676B1CE57B63002FD6AD /* WZCellFrame.m */,
 				A163676C1CE57B63002FD6AD /* WZObjectLists.h */,
 				A163676D1CE57B63002FD6AD /* WZObjectLists.m */,
 				A16367681CE57B63002FD6AD /* WZAlbum.h */,
@@ -329,23 +340,10 @@
 				A163676F1CE57B63002FD6AD /* WZPhoto.m */,
 				A16367701CE57B63002FD6AD /* WZSender.h */,
 				A16367711CE57B63002FD6AD /* WZSender.m */,
-				A163676A1CE57B63002FD6AD /* WZCellFrame.h */,
-				A163676B1CE57B63002FD6AD /* WZCellFrame.m */,
 				A156FD421CE61F3C00D7F254 /* WZUser.h */,
 				A156FD431CE61F3C00D7F254 /* WZUser.m */,
-				A156FD451CE6232F00D7F254 /* WZRelatedAlbum.h */,
-				A156FD461CE6232F00D7F254 /* WZRelatedAlbum.m */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		A16367721CE57B63002FD6AD /* MainDetail */ = {
-			isa = PBXGroup;
-			children = (
-				A156FD3F1CE61DA500D7F254 /* WZRelatedAlbums.h */,
-				A156FD401CE61DA500D7F254 /* WZRelatedAlbums.m */,
-			);
-			path = MainDetail;
 			sourceTree = "<group>";
 		};
 		A16367791CE57BF7002FD6AD /* Tool */ = {
@@ -396,6 +394,12 @@
 		A16367A61CE57DCD002FD6AD /* MainDetail */ = {
 			isa = PBXGroup;
 			children = (
+				A1E6F6D01CE6D09E009346E7 /* WZFirstRowCell.h */,
+				A1E6F6D11CE6D09E009346E7 /* WZFirstRowCell.m */,
+				A1E6F6D91CE6D163009346E7 /* WZSecondRowCell.h */,
+				A1E6F6DA1CE6D163009346E7 /* WZSecondRowCell.m */,
+				A1E6F6D61CE6D102009346E7 /* WZThirdRowCell.h */,
+				A1E6F6D71CE6D102009346E7 /* WZThirdRowCell.m */,
 			);
 			path = MainDetail;
 			sourceTree = "<group>";
@@ -647,7 +651,7 @@
 				A16367631CE57B63002FD6AD /* Head */,
 				A16367661CE57B63002FD6AD /* HeadDetail */,
 				A16367671CE57B63002FD6AD /* Main */,
-				A16367721CE57B63002FD6AD /* MainDetail */,
+				A1E6F6C31CE6AB8E009346E7 /* MainDetail */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -844,6 +848,18 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		A1E6F6C31CE6AB8E009346E7 /* MainDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A1E6F6C41CE6ACD6009346E7 /* WZRelatedAlbums.h */,
+				A1E6F6C51CE6ACD6009346E7 /* WZRelatedAlbums.m */,
+				A1F31A471CE72E0A00590B8F /* WZDetailCellFrame.h */,
+				A1F31A481CE72E0A00590B8F /* WZDetailCellFrame.m */,
+			);
+			name = MainDetail;
+			path = "堆糖画报/Classes/Home/Model/MainDetail";
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -956,6 +972,8 @@
 				A16ADF651CE613F100DC1619 /* JSONModel+networking.m in Sources */,
 				A16ADF601CE613F100DC1619 /* JSONModelClassProperty.m in Sources */,
 				A181D3E21CE2B93D004F64ED /* MJRefreshBaseView.m in Sources */,
+				A1F31A491CE72E0A00590B8F /* WZDetailCellFrame.m in Sources */,
+				A1E6F6C61CE6ACD6009346E7 /* WZRelatedAlbums.m in Sources */,
 				A1A7122C1CD8DBB90045A5C8 /* SDWebImagePrefetcher.m in Sources */,
 				A1DF6A0D1CD896F3002466A2 /* AppDelegate.m in Sources */,
 				A1DF6A6C1CD8A9EC002466A2 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -974,9 +992,9 @@
 				A181D3E31CE2B93D004F64ED /* MJRefreshConst.m in Sources */,
 				A1A7122E1CD8DBB90045A5C8 /* UIImage+GIF.m in Sources */,
 				A1E0EFEE1CDDC72100EC9501 /* UIBarButtonItem+MJ.m in Sources */,
+				A1E6F6DB1CE6D163009346E7 /* WZSecondRowCell.m in Sources */,
 				A1E5BFA61CDA303A00E026EF /* NSYearToWeek+WZ.m in Sources */,
 				A16ADF621CE613F100DC1619 /* NSArray+JSONModel.m in Sources */,
-				A156FD471CE6232F00D7F254 /* WZRelatedAlbum.m in Sources */,
 				A1B260E41CDC98A60048F920 /* MJMethod.m in Sources */,
 				A1DF6A6D1CD8A9EC002466A2 /* AFHTTPSessionManager.m in Sources */,
 				A1DF6A4F1CD89D78002466A2 /* WZStoreViewController.m in Sources */,
@@ -992,9 +1010,9 @@
 				A1B260E81CDC98A60048F920 /* NSObject+MJKeyValue.m in Sources */,
 				A1B260E11CDC98A60048F920 /* MJArgument.m in Sources */,
 				A1B260E91CDC98A60048F920 /* NSObject+MJMember.m in Sources */,
+				A1E6F6D81CE6D103009346E7 /* WZThirdRowCell.m in Sources */,
 				A1A712261CD8DBB90045A5C8 /* SDImageCache.m in Sources */,
 				A16ADF6A1CE6147F00DC1619 /* WZHttpRequestManager.m in Sources */,
-				A156FD411CE61DA500D7F254 /* WZRelatedAlbums.m in Sources */,
 				A1DF6A6F1CD8A9EC002466A2 /* AFSecurityPolicy.m in Sources */,
 				A16367741CE57B63002FD6AD /* WZAlbum.m in Sources */,
 				A16367AC1CE57DCD002FD6AD /* WZTopView.m in Sources */,
@@ -1007,6 +1025,7 @@
 				A16ADF661CE613F100DC1619 /* JSONKeyMapper.m in Sources */,
 				A1B260E61CDC98A60048F920 /* MJTypeEncoding.m in Sources */,
 				A16ADF5F1CE613F100DC1619 /* JSONModelArray.m in Sources */,
+				A1E6F6D21CE6D09E009346E7 /* WZFirstRowCell.m in Sources */,
 				A1A712311CD8DBB90045A5C8 /* UIImageView+WebCache.m in Sources */,
 				A1DF6A711CD8A9EC002466A2 /* AFURLRequestSerialization.m in Sources */,
 				A1DF6A6E1CD8A9EC002466A2 /* AFNetworkReachabilityManager.m in Sources */,

@@ -58,9 +58,9 @@
     }
     //2.分割线
     self.line.backgroundColor=[UIColor grayColor];
-    CGFloat lineY = self.frame.size.height-1;
-    CGFloat lineW = self.frame.size.width;
-    self.line.frame=CGRectMake(WZBorder, lineY, lineW, 1);
+    CGFloat lineY = self.frame.size.height-5;
+    CGFloat lineW = self.frame.size.width-2*WZBorder;
+    self.line.frame=CGRectMake(WZBorder, lineY, lineW, 0.5);
 
 }
 
@@ -80,7 +80,7 @@
     
     self=[super initWithFrame:frame];
     if (self) {
-        
+        self.backgroundColor=[UIColor whiteColor];
         //画报的评论数按钮
         self.replay_count=[self setupWithbgImage:@"blog_list_icon_comments"];
 
