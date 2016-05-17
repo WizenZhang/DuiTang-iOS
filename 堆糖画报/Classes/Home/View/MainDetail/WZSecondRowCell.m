@@ -8,21 +8,39 @@
 
 #import "WZSecondRowCell.h"
 #import "UIImage+MJ.h"
+#import "UIImageView+WebCache.h"
 @interface WZSecondRowCell()
 
 //画报的被赞数
 @property(nonatomic ,weak)UILabel *like_count;
 //收藏
 @property(nonatomic ,weak)UIButton *store;
+//收藏
+@property(nonatomic ,weak)UIScrollView *scroll;
 
 @end
 @implementation WZSecondRowCell
 -(void)setDatas:(WZObjectLists *)datas
 {
     _datas=datas;
-//    NSLog(@"%@",_datas);
-    self.like_count.text=[NSString stringWithFormat:@"赞 %d",_datas.like_count];
-    
+    long like_users=_datas.top_like_users.count;
+    //设置赞数
+    self.like_count.text=[NSString stringWithFormat:@"赞 %lu",(unsigned long)like_users];
+    //添加点赞人头像
+    for (int i=0; i<like_users; i++) {
+        
+        WZUser *users=_datas.top_like_users[i];
+        //收藏者头像
+        UIImageView *icon=[[UIImageView alloc]init];
+        CGFloat iconWH=50;
+        icon.clipsToBounds = YES;
+        icon.layer.cornerRadius =3;
+        icon.backgroundColor=[UIColor purpleColor];
+        [icon setImageWithURL:[NSURL URLWithString:users.avatar]placeholderImage:[UIImage imageNamed:@"image_default"]];
+        icon.frame=CGRectMake((2*WZBorder+iconWH)*i, 0, iconWH, iconWH);
+        self.scroll.contentSize=CGSizeMake(((2*WZBorder+iconWH))*like_users, iconWH);
+        [self.scroll addSubview:icon];
+    }
 }
 #pragma mark - 初始化
 + (instancetype)cellWithTableView:(UITableView *)tableView
@@ -67,8 +85,12 @@
         line.frame=CGRectMake(WZBorder, 60, cellW-2*WZBorder, 0.5);
         [self addSubview:line];
         
-        //收藏者头像
-        
+        //添加Scrollview
+        UIScrollView *scroll=[[UIScrollView alloc]init];
+        scroll.frame=CGRectMake(2*WZBorder, 75, cellW-2*WZBorder, 50);
+        [self addSubview:scroll];
+        self.scroll=scroll;
+       
     }
     return self;
 }

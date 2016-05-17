@@ -7,7 +7,9 @@
 //
 
 #import "JSONModel.h"
+@protocol WZUser
 
+@end
 @interface WZUser : JSONModel
 /**
  *  画报的用户头像
@@ -17,4 +19,8 @@
  *  画报的用户名
  */
 @property (nonatomic, copy) NSString *username;
+/**
+ *  画报的用户ID
+ */
+@property (nonatomic,copy) NSString *id;
 @end

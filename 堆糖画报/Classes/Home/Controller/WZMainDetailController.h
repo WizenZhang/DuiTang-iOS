@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
 @class WZObjectLists;
 @class WZDetailCellFrame;
+@class WZUser;
 @interface WZMainDetailController : UITableViewController
 @property (nonatomic,strong) WZObjectLists *datas;
+@property (nonatomic,strong) WZUser *users;
 @property (nonatomic,strong) WZDetailCellFrame *detailCellFrame;
+
 @end

@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "WZTabBarController.h"
-#import "WZMainDetailController.h"
+#import "WZUserDetailController.h"
+
 @interface AppDelegate ()
 
 @end

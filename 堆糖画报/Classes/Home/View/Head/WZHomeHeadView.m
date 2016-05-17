@@ -69,6 +69,7 @@
         imageView.frame = CGRectMake(imageX, imageY, imageW, imageH);
         [imageView setImageWithURL:[NSURL URLWithString:status.image_url]placeholderImage:[UIImage imageNamed:@"image_default"]];
         [self.scrollView addSubview:imageView];
+        
         //添加描述标签
         UILabel *desc=[[UILabel alloc]init];
         [self setupChildLabel:desc text:status.desc textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:20]];

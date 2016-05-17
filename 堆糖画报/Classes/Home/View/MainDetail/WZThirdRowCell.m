@@ -7,15 +7,18 @@
 //
 
 #import "WZThirdRowCell.h"
-#import "UIImage+MJ.h"
-#import "WZRelatedAlbums.h"
+#import "WZUserDetailController.h"
 #import "UIImageView+WebCache.h"
+#import "WZRelatedAlbums.h"
+#import "UIImage+MJ.h"
 #import "WZUser.h"
+#import "WaterFLayout.h"
 @interface WZThirdRowCell ( )
 //收藏以下专辑个数
 @property(nonatomic ,weak)UILabel *storeCount;
 //收藏专辑集合
 @property(nonatomic ,weak)UIScrollView *scrollView;
+
 @end
 
 @implementation WZThirdRowCell
@@ -41,7 +44,8 @@
         //添加图片
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.clipsToBounds = YES;
-        imageView.layer.cornerRadius =5;
+        imageView.layer.cornerRadius =3;
+        imageView.tag=index;
         NSString *source=[NSString stringWithFormat:@"%@",relateAlbum.covers];
         NSString *from=[source substringFromIndex:7];
         long length = [from rangeOfString:@"\""].location;
@@ -64,9 +68,14 @@
         username.frame=CGRectMake(2*WZBorder, 130, 140, 20);
         [imageView addSubview:username];
         
+        imageView.userInteractionEnabled=YES;
         imageView.frame = CGRectMake(imageX, imageY, imageWH, imageWH);
         self.scrollView.contentSize=CGSizeMake((imageWH+WZBorder)*relateAlbums.count, imageWH);
         [self.scrollView addSubview:imageView];
+        
+        //添加点击事件
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDetail:)];
+        [imageView addGestureRecognizer:tap];
         
         //左上角首发按钮
         UIButton *publishBtn=[[UIButton alloc]init];
@@ -76,6 +85,15 @@
         publishBtn.frame=CGRectMake(0, 0, 50, 20);
         [self.scrollView addSubview:publishBtn];
     }
+}
+- (void)userDetail:(UITapGestureRecognizer *)tap{
+   
+    UIImageView *imageView = (UIImageView *)tap.view;
+    self.imageIndex=imageView.tag;
+    //通知代理
+    if ([self.delegate respondsToSelector:@selector(thirdRowCellClickImage:)]) {
+        [self.delegate thirdRowCellClickImage:self];
+    }  
 }
 #pragma mark - 初始化
 + (instancetype)cellWithTableView:(UITableView *)tableView

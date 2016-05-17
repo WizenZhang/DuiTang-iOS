@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 #import "WZRelatedAlbums.h"
-
+#import "WZUser.h"
 
 @class WZPhoto;
 @class WZAlbum;
@@ -56,7 +56,10 @@
  *  画报的配图相关相册信息(数组中装模型:WZRelatedAlbums)
  */
 @property (nonatomic,strong) NSArray< WZRelatedAlbums> *related_albums;
-
+/**
+ *  画报的用户信息(数组中装模型:WZRelatedAlbums)
+ */
+@property (nonatomic,strong) NSArray< WZUser> *top_like_users;
 
 
 

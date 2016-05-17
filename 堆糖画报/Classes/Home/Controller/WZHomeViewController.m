@@ -8,7 +8,6 @@
 
 #import "WZHomeViewController.h"
 #import "WaterFallHeader.h"
-#import "WaterFallFooter.h"
 #import "WaterFLayout.h"
 #import "WZHomeHeadData.h"
 #import "AFNetworking.h"
@@ -36,7 +35,7 @@
 @end
 
 @implementation WZHomeViewController
-- (NSMutableArray *)statusFrames
+- (NSMutableArray *)cellFrame
 {
     if (_cellFrame == nil) {
         _cellFrame = [NSMutableArray array];
@@ -53,7 +52,6 @@
     self = [super initWithCollectionViewLayout:flowLayout];
     if (self)
     {
-        
         self.collectionView.backgroundColor=WZColor(223, 224, 225);
         self.collectionView.frame=CGRectMake(0, 0, DeviceWidth, DeviceHeight);
         [self.collectionView registerClass:[WZCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
@@ -77,6 +75,7 @@
 }
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     // 0.集成刷新控件
     [self setupRefreshView];
@@ -251,7 +250,6 @@
 {
     //select Item
     WZMainDetailController *detail = [[WZMainDetailController alloc] init];
-    
     WZCellFrame *cellFrame=self.cellFrame[indexPath.item];
     detail.datas=cellFrame.objectLists;
     [self.navigationController pushViewController:detail animated:YES];

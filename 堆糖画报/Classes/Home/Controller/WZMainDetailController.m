@@ -7,6 +7,7 @@
 //
 
 #import "WZMainDetailController.h"
+#import "WZUserDetailController.h"
 #import "WZHttpRequestManager.h"
 #import "WZNetInterface.h"
 #import "WZObjectLists.h"
@@ -16,22 +17,22 @@
 #import "WZSecondRowCell.h"
 #import "WZThirdRowCell.h"
 #import "WZDetailCellFrame.h"
-
-@interface WZMainDetailController ()
+#import "WaterFLayout.h"
+@interface WZMainDetailController () <WZThirdRowCellDelegate>
 @property (nonatomic,strong) WZHttpRequestManager *manager;
 @end
 
 @implementation WZMainDetailController
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.tableView.separatorStyle=NO;
     self.tableView.contentInset=UIEdgeInsetsMake(0, 0, WZBorder, 0);
     self.view.backgroundColor=WZColor(223, 224, 225);
     //加载选中item所对应数据
     [self loadDatas];
-
 
 }
 -(void)loadDatas
@@ -42,8 +43,8 @@
     _manager = [[WZHttpRequestManager alloc] initWithUrlString:path andBlock:^(WZHttpRequestManager *manager) {
         
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:manager.data options:NSJSONReadingMutableContainers error:nil];
-        
-        NSDictionary * dict = dic[@"data"];
+       
+        NSDictionary * dict = dic[@"data"];    
         self.datas=[[WZObjectLists alloc]initWithDictionary:dict error:nil];
         [self.tableView reloadData];
     }];
@@ -80,23 +81,38 @@
         WZSecondRowCell *cell = [WZSecondRowCell cellWithTableView:tableView];
         // 2.传递数据模型
         cell.datas = _datas;
-        
         return cell;
     }else{
         // 1.创建cell
         WZThirdRowCell *cell = [WZThirdRowCell cellWithTableView:tableView];
         // 2.传递数据模型
         cell.datas = _datas;
+        cell.delegate=self;
         return cell;
     }
 }
-
+#pragma mark - thirdRowCell代理方法
+- (void)thirdRowCellClickImage:(WZThirdRowCell *)thirdRowCell
+{
+     WaterFLayout *layout = [[WaterFLayout alloc]init];
+    //设置cell之间的垂直距离
+    layout.minimumInteritemSpacing=WZBorder;
+    //设置cell之间的水平距离
+    layout.minimumColumnSpacing=WZBorder;
+ 
+    WZUserDetailController *userDetail = [[WZUserDetailController alloc] initWithCollectionViewLayout:layout];
+        //传递数据模型
+        NSArray *relateAlbums=_datas.related_albums;
+        userDetail.relatedAlbums=relateAlbums[thirdRowCell.imageIndex];
+    [self.navigationController pushViewController:userDetail animated:YES];
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view.backgroundColor = [UIColor blueColor];
+   
     [self.navigationController pushViewController:vc animated:YES];
-    
-//    NSLog(@"%@",self.navigationController);
+
 }
 #pragma mark - 代理方法
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

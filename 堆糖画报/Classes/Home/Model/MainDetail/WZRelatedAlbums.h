@@ -23,6 +23,10 @@
  */
 @property (nonatomic,strong) NSArray *covers;
 /**
+ *  相关画报的相册ID
+ */
+@property (nonatomic,copy) NSString *id;
+/**
  *  相关画报的相册名称
  */
 @property (nonatomic,copy) NSString *name;

@@ -68,6 +68,7 @@
 		A1B260E71CDC98A60048F920 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B260DC1CDC98A60048F920 /* NSObject+MJCoding.m */; };
 		A1B260E81CDC98A60048F920 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B260DE1CDC98A60048F920 /* NSObject+MJKeyValue.m */; };
 		A1B260E91CDC98A60048F920 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B260E01CDC98A60048F920 /* NSObject+MJMember.m */; };
+		A1D796551CE9B8AE00AFA49C /* WZUserDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D796541CE9B8AE00AFA49C /* WZUserDetailController.m */; };
 		A1DF6A0A1CD896F3002466A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A091CD896F3002466A2 /* main.m */; };
 		A1DF6A0D1CD896F3002466A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DF6A0C1CD896F3002466A2 /* AppDelegate.m */; };
 		A1DF6A131CD896F3002466A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DF6A111CD896F3002466A2 /* Main.storyboard */; };
@@ -232,6 +233,8 @@
 		A1B260DE1CDC98A60048F920 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
 		A1B260DF1CDC98A60048F920 /* NSObject+MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJMember.h"; sourceTree = "<group>"; };
 		A1B260E01CDC98A60048F920 /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
+		A1D796531CE9B8AE00AFA49C /* WZUserDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZUserDetailController.h; sourceTree = "<group>"; };
+		A1D796541CE9B8AE00AFA49C /* WZUserDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZUserDetailController.m; sourceTree = "<group>"; };
 		A1DF6A041CD896F3002466A2 /* 堆糖画报.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "堆糖画报.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DF6A081CD896F3002466A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1DF6A091CD896F3002466A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -641,6 +644,8 @@
 				A1EB3C2D1CE42E33008F44B4 /* WZHomeViewController.m */,
 				A14D5F031CE5BD54003CA9B3 /* WZMainDetailController.h */,
 				A14D5F041CE5BD54003CA9B3 /* WZMainDetailController.m */,
+				A1D796531CE9B8AE00AFA49C /* WZUserDetailController.h */,
+				A1D796541CE9B8AE00AFA49C /* WZUserDetailController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1000,6 +1005,7 @@
 				A1DF6A4F1CD89D78002466A2 /* WZStoreViewController.m in Sources */,
 				A16367781CE57B63002FD6AD /* WZSender.m in Sources */,
 				A1B260E21CDC98A60048F920 /* MJIvar.m in Sources */,
+				A1D796551CE9B8AE00AFA49C /* WZUserDetailController.m in Sources */,
 				A16367A71CE57DCD002FD6AD /* WZHomeHeadView.m in Sources */,
 				A1DF6A431CD897C7002466A2 /* WZTabBarController.m in Sources */,
 				A16ADF5E1CE613F100DC1619 /* JSONModel.m in Sources */,
