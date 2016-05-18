@@ -20,6 +20,7 @@
         self.desc= dict[@"description"];
         self.enabled_at_str=dict[@"enabled_at_str"];
         self.image_url= dict[@"image_url"];
+        self.target= dict[@"target"];
     }
     return self;
 }

@@ -10,10 +10,13 @@
 #import "WZThirdRowCell.h"
 @class WZRelatedAlbums;
 @class WZObjectLists;
-
+@class WZHeadDetailData;
 @interface WZUserDetailController : UICollectionViewController
 @property (nonatomic,strong) WZRelatedAlbums *relatedAlbums;
 @property(nonatomic,strong)WZThirdRowCell *thirdRowCell;
 @property (nonatomic,strong) WZObjectLists *object_list;
+@property (nonatomic,strong) WZHeadDetailData *data;
+/**传递的画报ID*/
+@property(nonatomic,strong)NSString *ID;
 
 @end

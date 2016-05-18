@@ -14,12 +14,12 @@
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "WZHttpRequestManager.h"
-
+#import "WZHeadDetailView.h"
+#import "WZHeadDetailData.h"
 @interface WZUserDetailController ()
 @property (nonatomic, strong) WZCollectionViewCell *cell;
 @property (nonatomic,strong) WZHttpRequestManager *manager;
 @property(nonatomic,strong)NSMutableArray *cellFrame;
-@property(nonatomic,strong)WZRelatedAlbums *status;
 
 @end
 
@@ -36,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+   
     //设置setcollectionView
     [self setCollectionView];
     
@@ -49,18 +49,26 @@
 }
 - (void)setHeadViewData
 {
-   //    NSString *path = [NSString stringWithFormat:@"http://www.duitang.com/napi/album/detail/?include_fields=share_links_2%%2Ccovers%%2Cmembers%%2Cmember_count%%2Cmanagers&platform_version=4.2.2&device_platform=YUSUN%%2BLA2-W&__dtac=%%257B%%2522_r%%2522%%253A%%2520%%2522316784%%2522%%257D&screen_width=720&screen_height=1280&app_version=57&album_id=%@&platform_name=Android&locale=zh&app_code=nayutas",_relatedAlbums.id];
+       NSString *path = [NSString stringWithFormat:BANNERDETAILUP_UPL,_ID];
+    
+    _manager = [[WZHttpRequestManager alloc] initWithUrlString:path andBlock:^(WZHttpRequestManager *manager) {
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:manager.data options:NSJSONReadingMutableContainers error:nil];
+        
+        NSDictionary * dict = dic[@"data"];
+        self.data=[[WZHeadDetailData alloc]initWithDictionary:dict error:nil];
+
+    }];
+
+
 }
 - (void)setCollectionViewData
 {
-    NSString *path = [NSString stringWithFormat:BANNERDETAILDOWN_URL,5,_relatedAlbums.id];
+    NSString *path = [NSString stringWithFormat:BANNERDETAILDOWN_URL,5,_ID];
     
     // 1.创建请求管理对象
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    // 2.说明服务器返回的是Json数据
-    //    mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    // 3.发送请求
+    // 2.发送请求
     [mgr GET:path parameters:nil
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          
@@ -99,8 +107,18 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *reusableView =[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"WaterFallSectionHeader"forIndexPath:indexPath];
+    
+    //相册详情添加头部显示
+    WZHeadDetailView *headDeatail=[[WZHeadDetailView alloc]init];
+    
+    //传递数据
+    headDeatail.data=_data;
+    
+    [reusableView addSubview:headDeatail];
+
     return reusableView;
 }
+
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section
 {
     return 0;

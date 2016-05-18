@@ -7,7 +7,7 @@
 //
 
 #import "WaterFallHeader.h"
-#import "WZHomeHeadView.h"
+
 @implementation WaterFallHeader
 
 - (id)initWithFrame:(CGRect)frame
@@ -15,8 +15,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        //图片轮播器添加头部显示
-        [self addSubview:[WZHomeHeadView headerView]];
+      
     }
     return self;
 }

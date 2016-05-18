@@ -25,8 +25,8 @@
 #import "MBProgressHUD+MJ.h"
 #import "WZHomeHeadView.h"
 #import "WZMainDetailController.h"
-
-@interface WZHomeViewController () <MJRefreshBaseViewDelegate>
+#import "WZUserDetailController.h"
+@interface WZHomeViewController () <MJRefreshBaseViewDelegate,WZHomeHeadViewDelegate>
 @property(nonatomic,strong)NSMutableArray *cellFrame;
 @property(nonatomic,strong)NSMutableArray *datasArray;
 @property (nonatomic, strong) WZCollectionViewCell *cell;
@@ -63,6 +63,12 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *reusableView =[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"WaterFallSectionHeader"forIndexPath:indexPath];
+   
+    //图片轮播器添加头部显示
+    WZHomeHeadView *headView=[WZHomeHeadView headerView];
+    headView.delegate=self;
+    [reusableView addSubview:headView];
+
     return reusableView;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout heightForFooterInSection:(NSInteger)section
@@ -243,7 +249,24 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
 }
-
+#pragma mark - WZHomeHeadView Delegate
+- (void)homeHeadViewClickImage:(WZHomeHeadView *)homeHeadView
+{
+    if (homeHeadView.ID) {
+        WaterFLayout *layout = [[WaterFLayout alloc]init];
+        //设置cell之间的垂直距离
+        layout.minimumInteritemSpacing=WZBorder;
+        //设置cell之间的水平距离
+        layout.minimumColumnSpacing=WZBorder;
+        
+        WZUserDetailController *userDetail = [[WZUserDetailController alloc] initWithCollectionViewLayout:layout];
+        
+        //传递数据模型
+        userDetail.ID=homeHeadView.ID;
+//            NSLog(@"%@",userDetail.ID);
+        [self.navigationController pushViewController:userDetail animated:YES];
+    }
+}
 #pragma mark - UICollectionView Delegate
 /**UICollectionView被选中时调用的方法*/
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

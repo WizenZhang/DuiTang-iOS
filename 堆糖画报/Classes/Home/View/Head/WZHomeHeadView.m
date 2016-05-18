@@ -9,15 +9,17 @@
 #import "WZHomeHeadView.h"
 #import "WZHomeHeadData.h"
 #import "UIImageView+WebCache.h"
-#import "WZHomeHeadData.h"
 #import "AFNetworking.h"
 #import "NSYearToWeek+WZ.h"
+#import "WZHomeHeadData.h"
 @interface WZHomeHeadView ()<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (strong, nonatomic) NSTimer *timer;
 @property(nonatomic,strong)NSArray *statuses;
+@property (strong, nonatomic) NSTimer *timer;
+@property(nonatomic,strong)WZHomeHeadData *homeHeadData;
+
 
 @end
 @implementation WZHomeHeadView
@@ -44,7 +46,6 @@
              [dataArray addObject:data];
          }
          self.statuses=dataArray;
-         
          //设置图片
          [self setheadImage];
          
@@ -66,6 +67,7 @@
         
         //添加头部图片
         UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.tag=index;
         imageView.frame = CGRectMake(imageX, imageY, imageW, imageH);
         [imageView setImageWithURL:[NSURL URLWithString:status.image_url]placeholderImage:[UIImage imageNamed:@"image_default"]];
         [self.scrollView addSubview:imageView];
@@ -95,7 +97,22 @@
     // 4.定时器
     self.timer = [NSTimer timerWithTimeInterval:2.5 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    
+    //添加点击事件
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userDetail:)];
+    [self.scrollView addGestureRecognizer:tap];
+    
+
 }
+
+- (void)userDetail:(UITapGestureRecognizer *)tap{
+
+    //通知代理
+    if ([self.delegate respondsToSelector:@selector(homeHeadViewClickImage:)]) {
+        [self.delegate homeHeadViewClickImage:self];
+    }
+}
+
 - (void)setupChildLabel:(UILabel *)label text:(NSString *)text textColor:(UIColor *)textColor font:(UIFont *)font
 {
     label.text=text;
@@ -104,6 +121,12 @@
 }
 - (void)nextImage
 {
+    // 0.获取跳转目标画报ID
+    self.homeHeadData=_statuses[self.pageControl.currentPage];
+    NSString *source=[NSString stringWithFormat:@"%@",self.homeHeadData.target];
+    long length = [source rangeOfString:@"id="].location+3;
+    self.ID=[source substringFromIndex:length];
+    
     // 1.下一页
     if (self.pageControl.currentPage == self.statuses.count - 1) {
         self.pageControl.currentPage = 0;

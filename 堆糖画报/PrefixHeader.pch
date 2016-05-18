@@ -33,6 +33,9 @@
 /**画报的名称字体*/
 #define NameFont [UIFont boldSystemFontOfSize:16]
 
+/**画报的名称字体*/
+#define userNameFont [UIFont systemFontOfSize:13]
+
 /**画报的日期字体*/
 #define DateFont [UIFont systemFontOfSize:13]
 

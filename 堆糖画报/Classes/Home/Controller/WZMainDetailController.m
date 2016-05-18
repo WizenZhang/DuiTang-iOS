@@ -18,8 +18,10 @@
 #import "WZThirdRowCell.h"
 #import "WZDetailCellFrame.h"
 #import "WaterFLayout.h"
+#import "WZRelatedAlbums.h"
 @interface WZMainDetailController () <WZThirdRowCellDelegate>
 @property (nonatomic,strong) WZHttpRequestManager *manager;
+@property (nonatomic,strong) WZRelatedAlbums *relatedAlbums;
 @end
 
 @implementation WZMainDetailController
@@ -101,9 +103,10 @@
     layout.minimumColumnSpacing=WZBorder;
  
     WZUserDetailController *userDetail = [[WZUserDetailController alloc] initWithCollectionViewLayout:layout];
-        //传递数据模型
-        NSArray *relateAlbums=_datas.related_albums;
-        userDetail.relatedAlbums=relateAlbums[thirdRowCell.imageIndex];
+    //传递ID数据模型
+    NSArray *relateAlbums=_datas.related_albums;
+    self.relatedAlbums=relateAlbums[thirdRowCell.imageIndex];
+    userDetail.ID=self.relatedAlbums.id;
     [self.navigationController pushViewController:userDetail animated:YES];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

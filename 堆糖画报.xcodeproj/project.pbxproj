@@ -96,6 +96,8 @@
 		A1E6F6D81CE6D103009346E7 /* WZThirdRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6F6D71CE6D102009346E7 /* WZThirdRowCell.m */; };
 		A1E6F6DB1CE6D163009346E7 /* WZSecondRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6F6DA1CE6D163009346E7 /* WZSecondRowCell.m */; };
 		A1EB3C2E1CE42E33008F44B4 /* WZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EB3C2D1CE42E33008F44B4 /* WZHomeViewController.m */; };
+		A1EBC87A1CEBF5E7000087AF /* WZHeadDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EBC8791CEBF5E7000087AF /* WZHeadDetailView.m */; };
+		A1EE60261CEC4C190006265A /* WZHeadDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EE60251CEC4C190006265A /* WZHeadDetailData.m */; };
 		A1F31A491CE72E0A00590B8F /* WZDetailCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F31A481CE72E0A00590B8F /* WZDetailCellFrame.m */; };
 /* End PBXBuildFile section */
 
@@ -292,6 +294,10 @@
 		A1E6F6DA1CE6D163009346E7 /* WZSecondRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZSecondRowCell.m; sourceTree = "<group>"; };
 		A1EB3C2C1CE42E33008F44B4 /* WZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZHomeViewController.h; sourceTree = "<group>"; };
 		A1EB3C2D1CE42E33008F44B4 /* WZHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZHomeViewController.m; sourceTree = "<group>"; };
+		A1EBC8781CEBF5E7000087AF /* WZHeadDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZHeadDetailView.h; sourceTree = "<group>"; };
+		A1EBC8791CEBF5E7000087AF /* WZHeadDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZHeadDetailView.m; sourceTree = "<group>"; };
+		A1EE60241CEC4C190006265A /* WZHeadDetailData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZHeadDetailData.h; sourceTree = "<group>"; };
+		A1EE60251CEC4C190006265A /* WZHeadDetailData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZHeadDetailData.m; sourceTree = "<group>"; };
 		A1F31A471CE72E0A00590B8F /* WZDetailCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZDetailCellFrame.h; sourceTree = "<group>"; };
 		A1F31A481CE72E0A00590B8F /* WZDetailCellFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZDetailCellFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -326,6 +332,8 @@
 		A16367661CE57B63002FD6AD /* HeadDetail */ = {
 			isa = PBXGroup;
 			children = (
+				A1EE60241CEC4C190006265A /* WZHeadDetailData.h */,
+				A1EE60251CEC4C190006265A /* WZHeadDetailData.m */,
 			);
 			path = HeadDetail;
 			sourceTree = "<group>";
@@ -375,6 +383,8 @@
 		A163679C1CE57DCD002FD6AD /* HeadDetail */ = {
 			isa = PBXGroup;
 			children = (
+				A1EBC8781CEBF5E7000087AF /* WZHeadDetailView.h */,
+				A1EBC8791CEBF5E7000087AF /* WZHeadDetailView.m */,
 			);
 			path = HeadDetail;
 			sourceTree = "<group>";
@@ -995,6 +1005,7 @@
 				A181D3E41CE2B93D004F64ED /* MJRefreshFooterView.m in Sources */,
 				A1A7122D1CD8DBB90045A5C8 /* UIButton+WebCache.m in Sources */,
 				A181D3E31CE2B93D004F64ED /* MJRefreshConst.m in Sources */,
+				A1EBC87A1CEBF5E7000087AF /* WZHeadDetailView.m in Sources */,
 				A1A7122E1CD8DBB90045A5C8 /* UIImage+GIF.m in Sources */,
 				A1E0EFEE1CDDC72100EC9501 /* UIBarButtonItem+MJ.m in Sources */,
 				A1E6F6DB1CE6D163009346E7 /* WZSecondRowCell.m in Sources */,
@@ -1049,6 +1060,7 @@
 				A1A712271CD8DBB90045A5C8 /* SDWebImageCompat.m in Sources */,
 				A16ADF641CE613F100DC1619 /* JSONHTTPClient.m in Sources */,
 				A1A712251CD8DBB90045A5C8 /* NSData+ImageContentType.m in Sources */,
+				A1EE60261CEC4C190006265A /* WZHeadDetailData.m in Sources */,
 				A1DF6A561CD89EE5002466A2 /* WZTabBarButton.m in Sources */,
 				A181D3D51CE2B935004F64ED /* MBProgressHUD.m in Sources */,
 			);

@@ -21,6 +21,11 @@
  *  顶部画报的配图
  */
 @property (nonatomic, copy) NSString *image_url;
+/**
+ *  跳转目标相册的ID
+ */
+@property (nonatomic, copy) NSString *target;
+
 + (instancetype)dataWithDict:(NSDictionary *)dict;
 - (instancetype)initWithDict:(NSDictionary *)dict;
 
