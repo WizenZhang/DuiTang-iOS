@@ -17,6 +17,7 @@
 @property (nonatomic,strong) WZObjectLists *object_list;
 @property (nonatomic,strong) WZHeadDetailData *data;
 /**传递的画报ID*/
-@property(nonatomic,strong)NSString *ID;
-
+@property(nonatomic,copy)NSString *ID;
+/**背景毛玻璃处理图片路径*/
+@property(nonatomic,copy)NSString *path;
 @end

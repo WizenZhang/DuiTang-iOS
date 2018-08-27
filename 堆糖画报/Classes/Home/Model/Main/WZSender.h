@@ -17,5 +17,5 @@
  *  画报的发布者昵称
  */
 @property (nonatomic, copy) NSString *username;
-
+@property (nonatomic,weak)NSNumber *id;
 @end

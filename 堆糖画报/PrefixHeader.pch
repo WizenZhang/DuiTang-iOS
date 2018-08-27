@@ -23,8 +23,8 @@
 
 //3.设备宽度和高度
 #define DeviceWidth 375
-#define DeviceHeight 647
-
+#define DeviceHeight 667
+#define cellW 365
 
 /**字体设置*/
 /**主页画报的名称字体*/
@@ -42,13 +42,42 @@
 /**画报的配图描述字体*/
 #define MsgFont [UIFont systemFontOfSize:14]
 
+/**画报的分类次目录标题字体*/
+#define CategoryFont [UIFont boldSystemFontOfSize:14]
+
+/**画报的分类主目录标题字体*/
+#define CategoryTitleFont [UIFont boldSystemFontOfSize:20]
+
+/**（我）提示文字字体*/
+#define MineFont [UIFont boldSystemFontOfSize:20]
+
 /**画报的工具条字体*/
 #define ToolBarFont [UIFont systemFontOfSize:13]
-/** 边框宽度 */
+/** 边界宽度 */
 #define WZBorder 5
-
+/** 边框宽度 */
+#define WZEdge 8
+//抽屉宽度
+#define DrawerW 110
 //头部Height
-#define headHeight 230
+#define headHeight 280
 
+#define UIFont(x)   [UIFont systemFontOfSize:x]
+#define UIBoldFont(y)   [UIFont boldSystemFontOfSize:y]
+//
+#define WZDaybgColor [UIColor colorWithRed:229/255.0 green:230/255.0 blue:231/255.0 alpha:1.0]
+
+//夜间模式
+#define WZNightbgColor [UIColor colorWithRed:10/255.0 green:18/255.0 blue:34/255.0 alpha:1.0]
+
+#define WZNightUserbgColor [UIColor colorWithRed:11/255.0 green:21/255.0 blue:42/255.0 alpha:1.0]
+
+#define WZNightNavColor [UIColor colorWithRed:16/255.0 green:30/255.0 blue:68/255.0 alpha:1.0]
+
+#define WZNightTabColor [UIColor colorWithRed:11/255.0 green:21/255.0 blue:39/255.0 alpha:1.0]
+
+#define WZNightCellColor [UIColor colorWithRed:19/255.0 green:37/255.0 blue:69/255.0 alpha:1.0]
+
+#define WZNightTextColor [UIColor colorWithRed:88/255.0 green:110/255.0 blue:148/255.0 alpha:1.0]
 #endif
 #endif

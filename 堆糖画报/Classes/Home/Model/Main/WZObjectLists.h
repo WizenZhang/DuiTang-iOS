@@ -10,10 +10,10 @@
 #import "JSONModel.h"
 #import "WZRelatedAlbums.h"
 #import "WZUser.h"
+#import "WZPhoto.h"
+#import "WZSender.h"
+#import "WZAlbum.h"
 
-@class WZPhoto;
-@class WZAlbum;
-@class WZSender;
 
 @interface WZObjectLists : JSONModel
 /**
@@ -31,15 +31,15 @@
 /**
  *  画报的评论数
  */
-@property (nonatomic, assign) int reply_count;
+@property (nonatomic,copy) NSString *reply_count;
 /**
  *  画报的被赞数
  */
-@property (nonatomic, assign) int like_count;
+@property (nonatomic,copy) NSString *like_count;
 /**
  *  画报的收藏数
  */
-@property (nonatomic, assign) int favorite_count;
+@property (nonatomic,copy) NSString *favorite_count;
 /**
  *  画报的发布者信息（数组中装模型:WZSender)
  */
@@ -60,6 +60,25 @@
  *  画报的用户信息(数组中装模型:WZRelatedAlbums)
  */
 @property (nonatomic,strong) NSArray< WZUser> *top_like_users;
+
+@property (nonatomic,copy) NSString *add_datetime;
+
+@property (nonatomic,weak) NSNumber *add_datetime_ts;
+@property (nonatomic,copy) NSString *icon_url;
+@property (nonatomic,weak) NSNumber *sender_id;
+@property (nonatomic,weak) NSNumber *like_id;
+
+
+
+
+@property (nonatomic,weak) NSNumber *event_count;
+@property (nonatomic,copy) NSString *extra_type;
+
+
+@property (nonatomic,weak) NSNumber *buyable;
+@property (nonatomic,weak) NSNumber *is_root;
+@property (nonatomic,weak) NSNumber *has_favorited;
+
 
 
 

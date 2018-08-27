@@ -7,13 +7,39 @@
 //
 
 #import "WZNavigationController.h"
-
+#import "JXLDayAndNightMode.h"
 @interface WZNavigationController ()
 
 @end
 
 @implementation WZNavigationController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // 设置日间和夜间两种状态模式
+    [self setDayAndNight];
+}
+/**
+ *  设置日间和夜间两种状态模式
+ */
+- (void)setDayAndNight
+{
+    [self.navigationBar jxl_setDayMode:^(UIView *view) {
+        UINavigationBar *bar = (UINavigationBar *)view;
+        // 改变状态栏前景色为黑色
+        bar.barStyle = UIBarStyleDefault;
+        bar.barTintColor = [UIColor whiteColor];
+        bar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor blackColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:18]};
+    } nightMode:^(UIView *view) {
+        
+        UINavigationBar *bar = (UINavigationBar *)view;
+        // 改变状态栏前景色为白色
+        bar.barStyle = UIBarStyleBlack;
+        bar.barTintColor = WZNightNavColor;
+        bar.titleTextAttributes=@{NSForegroundColorAttributeName:WZNightTextColor,NSFontAttributeName:[UIFont boldSystemFontOfSize:18]};
+    }];
+
+}
 /**
  *  第一次使用这个类的时候会调用(1个类只会调用1次)
  */

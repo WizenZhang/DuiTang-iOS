@@ -9,7 +9,6 @@
 #import "WZMiddleToolBar.h"
 #import "WZObjectLists.h"
 
-
 @interface WZMiddleToolBar ()
 
 //画报的评论数
@@ -36,10 +35,20 @@
 - (void)setupBtn:(UIButton *)btn Title:(int)title
 {
     //初始化按钮title
-    NSString *str=[NSString stringWithFormat:@"%d",title];
-    [btn setTitle:str forState:UIControlStateNormal];
+    NSString *number=[self rangKiloString:title];
+    [btn setTitle:number forState:UIControlStateNormal];
 }
-
+- (NSString *)rangKiloString:(int)count
+{
+    if (count>1000) {
+        NSString *num=[NSString stringWithFormat:@"%dk",count/1000];
+        return num;
+    }else{
+        NSString *num=[NSString stringWithFormat:@"%d",count];
+        return num;
+    }
+    
+}
 - (void)layoutSubviews
 {
     
@@ -94,7 +103,6 @@
         UIView *line=[[UIView alloc]init];
         self.line=line;
         [self addSubview:self.line];
-        
         
      }
     return self;

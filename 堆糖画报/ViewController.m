@@ -1,13 +1,13 @@
 //
 //  ViewController.m
-//  堆糖画报
+//  Test
 //
 //  Created by Wizen Zhang on 16/5/3.
 //  Copyright (c) 2016年 Wizen Zhang. All rights reserved.
 //
 
 #import "ViewController.h"
-
+#import "AFNetworking.h"
 @interface ViewController ()
 
 @end
@@ -16,8 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

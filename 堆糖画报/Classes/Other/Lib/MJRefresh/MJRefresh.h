@@ -1,7 +1,9 @@
 
 #import "MJRefreshFooterView.h"
+/**调整头部刷新控件起始高度(从 － MJRefreshViewHeight开始)*/
 #import "MJRefreshHeaderView.h"
-
+/**调整头部刷新控件起始高度(从 － 2*MJRefreshViewHeight开始)*/
+#import "MJRefreshHeadView.h"
 /**
  MJ友情提示：
  1. 添加头部控件的方法

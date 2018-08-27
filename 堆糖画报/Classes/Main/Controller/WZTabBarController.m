@@ -10,9 +10,9 @@
 #import "WZNavigationController.h"
 #import "WZHomeViewController.h"
 #import "WZSortViewController.h"
-#import "WZStoreViewController.h"
+#import "WZMeViewController.h"
 #import "WZTabBar.h"
-
+#import "JXLDayAndNightMode.h"
 @interface WZTabBarController () <WZTabBarDelegate>
 /**
  *  自定义的tabbar
@@ -24,15 +24,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.view.backgroundColor=[UIColor redColor];
     
+    // 设置日间和夜间两种状态模式
+    [self setDayAndNight];
+
     // 初始化tabbar
     [self setupTabbar];
     
     // 初始化所有的子控制器
     [self setupAllChildViewControllers];
 }
-
+/**
+ *  设置日间和夜间两种状态模式
+ */
+- (void)setDayAndNight
+{
+    [self.tabBar jxl_setDayMode:^(UIView *view) {
+        UITabBar *bar = (UITabBar *)view;
+        // 改变状态栏前景色为黑色
+        bar.barStyle = UIBarStyleDefault;
+        bar.barTintColor = [UIColor whiteColor];
+    } nightMode:^(UIView *view) {
+        
+        UITabBar *bar = (UITabBar *)view;
+        // 改变状态栏前景色为白色
+        bar.barStyle = UIBarStyleBlack;
+        bar.barTintColor = WZNightTabColor;
+        
+    }];
+    
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -77,12 +98,11 @@
     
     // 2.分类
     WZSortViewController *message = [[WZSortViewController alloc] init];
-    [self setupChildViewController:message title:@"分类" imageName:@"tabbar_item_communication_normal" selectedImageName:@"tabbar_item_communication_selected"];
+    [self setupChildViewController:message title:@"分类" imageName:@"tabbar_item_category_normal" selectedImageName:@"tabbar_item_category_selected"];
     
-    // 3.收藏
-    WZStoreViewController *discover = [[WZStoreViewController alloc] init];
-    [self setupChildViewController:discover title:@"收藏" imageName:@"tabbar_item_category_normal" selectedImageName:@"tabbar_item_category_selected"];
-    
+    // 3.我
+    WZMeViewController *discover = [[WZMeViewController alloc] init];
+    [self setupChildViewController:discover title:@"我" imageName:@"tabbar_item_me_normal" selectedImageName:@"tabbar_item_me_selected"];
     
 }
 

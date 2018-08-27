@@ -12,7 +12,7 @@
 #import "WZSender.h"
 #import "UIImageView+WebCache.h"
 #import "WZAlbum.h"
-
+#import "JXLDayAndNightMode.h"
 
 @interface WZBottomView ()
 //画报的发布者头像
@@ -35,7 +35,7 @@
     // 2.画报的发布者头像
     [self.avator setImageWithURL:[NSURL URLWithString:sender.avatar]placeholderImage:[UIImage imageNamed:@"image_default"]];
     self.avator.clipsToBounds = YES;
-    self.avator.layer.cornerRadius =5;
+    self.avator.layer.cornerRadius =2;
     self.avator.frame=self.cellFrame.avatorF;
     
     // 3.画报的所属相册名称
@@ -61,17 +61,22 @@
         //画报的所属相册名称
         UILabel *name=[[UILabel alloc]init];
         name.font = MainNameFont;
-//        name.numberOfLines=0;
         [self addSubview:name];
         self.name=name;
             
         //画报的发布者昵称
         UILabel *username=[[UILabel alloc]init];
         username.font = MainNameFont;
-//        username.numberOfLines=0;
         username.textColor=[UIColor grayColor];
         [self addSubview:username];
         self.username=username;
+            
+        //设置日间和夜间两种状态模式
+        [self jxl_setDayMode:^(UIView *view) {
+            self.name.textColor=[UIColor blackColor];
+        } nightMode:^(UIView *view) {
+            self.name.textColor=WZNightTextColor;
+        }];
             
     }
     return self;

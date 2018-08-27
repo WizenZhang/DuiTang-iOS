@@ -15,7 +15,7 @@
 #define  WZTabBarButtonTitleSelectedColor (iOS7 ? WZColor(183, 0, 0) : WZColor(248, 139, 0))
 
 #import "WZTabBarButton.h"
-
+#import "JXLDayAndNightMode.h"
 @interface WZTabBarButton()
 
 @end
@@ -33,13 +33,18 @@
         // 字体大小
         self.titleLabel.font = [UIFont systemFontOfSize:11];
         // 文字颜色
-        [self setTitleColor:WZTabBarButtonTitleColor forState:UIControlStateNormal];
+        
         [self setTitleColor:WZTabBarButtonTitleSelectedColor forState:UIControlStateSelected];
         
         if (!iOS7) { // 非iOS7下,设置按钮选中时的背景
             [self setBackgroundImage:[UIImage imageNamed:@"tabbar_slider"] forState:UIControlStateSelected];
         }
-        
+        //设置日间和夜间两种状态模式
+        [self jxl_setDayMode:^(UIView *view) {
+            [self setTitleColor:WZTabBarButtonTitleColor forState:UIControlStateNormal];
+        } nightMode:^(UIView *view) {
+            [self setTitleColor:WZNightTextColor forState:UIControlStateNormal];
+        }];
     }
     return self;
 }

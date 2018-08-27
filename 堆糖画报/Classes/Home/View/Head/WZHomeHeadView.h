@@ -12,11 +12,14 @@
 @protocol WZHomeHeadViewDelegate <NSObject>
 @optional
 - (void)homeHeadViewClickImage:(WZHomeHeadView *)homeHeadView;
+- (void)homeHeadViewClickSingle:(WZHomeHeadView *)homeHeadView;
+- (void)homeHeadViewClickBiserial:(WZHomeHeadView *)homeHeadView;
 @end
 
 @interface WZHomeHeadView : UIView
 @property(nonatomic ,weak)id <WZHomeHeadViewDelegate>delegate;
-
+@property (weak, nonatomic) IBOutlet UIButton *biserialButton;
+@property (weak, nonatomic) IBOutlet UIButton *singleButton;
 /**要跳转的画报ID*/
 @property(nonatomic,strong)NSString *ID;
 + (instancetype)headerView;

@@ -8,23 +8,63 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="eN3-em-V8S" customClass="WZHomeHeadView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Keh-r9-iok">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                 </scrollView>
-                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PVc-wx-ghj">
+                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="10" translatesAutoresizingMaskIntoConstraints="NO" id="PVc-wx-ghj">
                     <rect key="frame" x="168" y="180" width="25" height="37"/>
                 </pageControl>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycZ-48-XeP">
+                    <rect key="frame" x="188" y="240" width="1" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vln-QC-R2u">
+                    <rect key="frame" x="0.0" y="230" width="187" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="imageEdgeInsets" minX="84" minY="15" maxX="83" maxY="15"/>
+                    <state key="normal" image="biserial_selected">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="biserial_normal"/>
+                    <state key="highlighted" image="biserial_selected" backgroundImage="button_bg">
+                        <color key="titleShadowColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="biserialClick" destination="eN3-em-V8S" eventType="touchDown" id="gFH-fQ-KeH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLH-w0-YWW">
+                    <rect key="frame" x="188" y="230" width="187" height="50"/>
+                    <inset key="imageEdgeInsets" minX="84" minY="15" maxX="83" maxY="15"/>
+                    <state key="normal" image="single_column_normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="single_column_selected"/>
+                    <state key="highlighted" image="single_column_selected" backgroundImage="button_bg"/>
+                    <connections>
+                        <action selector="singleClick" destination="eN3-em-V8S" eventType="touchDown" id="eqy-KR-Ytv"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="biserialButton" destination="vln-QC-R2u" id="Kst-Nw-d4C"/>
                 <outlet property="pageControl" destination="PVc-wx-ghj" id="7dm-md-JSI"/>
                 <outlet property="scrollView" destination="Keh-r9-iok" id="WBQ-UX-PGg"/>
+                <outlet property="singleButton" destination="hLH-w0-YWW" id="sc1-og-bcP"/>
             </connections>
             <point key="canvasLocation" x="378" y="264"/>
         </view>
     </objects>
+    <resources>
+        <image name="biserial_normal" width="48" height="48"/>
+        <image name="biserial_selected" width="48" height="48"/>
+        <image name="button_bg" width="359" height="94"/>
+        <image name="single_column_normal" width="48" height="48"/>
+        <image name="single_column_selected" width="48" height="48"/>
+    </resources>
 </document>

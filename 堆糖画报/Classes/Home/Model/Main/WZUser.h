@@ -22,5 +22,5 @@
 /**
  *  画报的用户ID
  */
-@property (nonatomic,copy) NSString *id;
+@property (nonatomic,copy) NSNumber *id;
 @end

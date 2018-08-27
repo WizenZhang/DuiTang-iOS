@@ -23,7 +23,15 @@
     // 非iOS7
     return [UIImage imageNamed:name];
 }
-
+#pragma mark - 对图片进行模糊处理
+//Avilable in iOS 8.0 and later
++ (UIVisualEffectView *)effectViewWithFrame:(CGRect)frame
+{
+    UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+    effectView.frame = frame;
+    return effectView;
+}
 + (UIImage *)resizedImageWithName:(NSString *)name
 {
     return [self resizedImageWithName:name left:0.5 top:0.5];

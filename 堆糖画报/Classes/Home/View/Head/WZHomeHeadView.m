@@ -12,14 +12,18 @@
 #import "AFNetworking.h"
 #import "NSYearToWeek+WZ.h"
 #import "WZHomeHeadData.h"
+#import "JXLDayAndNightMode.h"
 @interface WZHomeHeadView ()<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
+- (IBAction)biserialClick;
+- (IBAction)singleClick;
+
 @property(nonatomic,strong)NSArray *statuses;
 @property (strong, nonatomic) NSTimer *timer;
 @property(nonatomic,strong)WZHomeHeadData *homeHeadData;
-
 
 @end
 @implementation WZHomeHeadView
@@ -122,7 +126,11 @@
 - (void)nextImage
 {
     // 0.获取跳转目标画报ID
-    self.homeHeadData=_statuses[self.pageControl.currentPage];
+    long index=self.pageControl.currentPage+1;
+    if (index>self.statuses.count-1) {
+        index=0;
+    }
+    self.homeHeadData=_statuses[index];
     NSString *source=[NSString stringWithFormat:@"%@",self.homeHeadData.target];
     long length = [source rangeOfString:@"id="].location+3;
     self.ID=[source substringFromIndex:length];
@@ -161,7 +169,43 @@
 - (void)awakeFromNib
 {
     // 加载首页头部图片
-
+    [self setDayAndNight];
     [self loadHomeHeadData];
 }
+/**
+ *  设置日间和夜间两种状态模式
+ */
+- (void)setDayAndNight
+{
+    [self jxl_setDayMode:^(UIView *view) {
+        // 设置夜间模式状态
+        self.singleButton.backgroundColor = [UIColor whiteColor];
+        self.biserialButton.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor=[UIColor whiteColor];
+
+    } nightMode:^(UIView *view) {
+        // 设置夜间模式状态
+        self.backgroundColor=WZNightCellColor;
+        self.singleButton.backgroundColor = WZNightCellColor;
+        self.biserialButton.backgroundColor = WZNightCellColor;
+    }];
+}
+
+- (IBAction)biserialClick {
+        //通知代理
+    if ([self.delegate respondsToSelector:@selector(homeHeadViewClickBiserial:)]) {
+        [self.delegate homeHeadViewClickBiserial:self];
+    }
+
+}
+
+- (IBAction)singleClick {
+   
+    //通知代理
+    if ([self.delegate respondsToSelector:@selector(homeHeadViewClickSingle:)]) {
+        [self.delegate homeHeadViewClickSingle:self];
+    }
+
+}
 @end
+

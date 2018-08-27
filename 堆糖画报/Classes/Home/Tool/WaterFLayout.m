@@ -150,11 +150,12 @@ const NSInteger unionSize = 20;
 - (void)commonInit
 {
     _columnCount = 2;
-    _minimumColumnSpacing = 10;
-    _minimumInteritemSpacing = 10;
+    _minimumColumnSpacing = WZEdge;
+    _minimumInteritemSpacing = WZEdge;
     _headerHeight = 0;
     _footerHeight = 0;
-    _sectionInset = UIEdgeInsetsZero;
+    _sectionInset = UIEdgeInsetsMake(WZEdge, WZEdge, WZEdge, WZEdge);
+//    _sectionInset = UIEdgeInsetsZero;
 }
 
 - (id)init

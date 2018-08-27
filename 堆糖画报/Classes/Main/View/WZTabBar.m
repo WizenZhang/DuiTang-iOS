@@ -8,7 +8,7 @@
 
 #import "WZTabBar.h"
 #import "WZTabBarButton.h"
-
+#import "JXLDayAndNightMode.h"
 @interface WZTabBar()
 @property (nonatomic, strong) NSMutableArray *tabBarButtons;
 @property (nonatomic, weak) UIButton *plusButton;
@@ -32,7 +32,15 @@
         if (!iOS7) { // 非iOS7下,设置tabbar的背景
             self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background"]];
         }
-           }
+        //设置日间和夜间两种状态模式
+        [self jxl_setDayMode:^(UIView *view) {
+            self.backgroundColor=[UIColor whiteColor];
+            
+        } nightMode:^(UIView *view) {
+            self.backgroundColor=WZNightTabColor;
+            
+        }];
+   }
     return self;
 }
 

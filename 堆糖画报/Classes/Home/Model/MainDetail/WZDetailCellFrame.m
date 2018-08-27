@@ -17,7 +17,7 @@
 - (void)setDatas:(WZObjectLists *)datas
 {
     _datas=datas;
-    CGFloat cellW=DeviceWidth-2*WZBorder;
+    
     // 取出模型数据
     WZAlbum *album=datas.album;
     WZPhoto *photo=datas.photo;
@@ -26,8 +26,8 @@
     CGFloat photoX = 0;
     CGFloat photoY = 0;
     CGFloat photoW = cellW;
-    CGFloat ratio = photoW / photo.width;
-    CGFloat photoH = photo.height * ratio;
+    CGFloat ratio = photoW / photo.width ;
+    CGFloat photoH = photo.height  * ratio;
     _photoF = CGRectMake(photoX, photoY, photoW, photoH);
     
     // 2.画报的发布者头像

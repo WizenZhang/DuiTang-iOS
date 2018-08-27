@@ -16,6 +16,10 @@
  *  画报的所属相册封面
  */
 //@property (nonatomic, copy) NSString *covers;
+@property (nonatomic,copy) NSString *id;
 
+@property (nonatomic,weak) NSNumber *count;
+@property (nonatomic,weak) NSNumber *category;
+@property (nonatomic,weak) NSNumber *like_count;
 
 @end

@@ -13,6 +13,7 @@
 #import "UIImage+MJ.h"
 #import "WZUser.h"
 #import "WaterFLayout.h"
+#import "JXLDayAndNightMode.h"
 @interface WZThirdRowCell ( )
 //收藏以下专辑个数
 @property(nonatomic ,weak)UILabel *storeCount;
@@ -25,9 +26,9 @@
 -(void)setDatas:(WZObjectLists *)datas
 {
     _datas=datas;
-    
+
     //设置收藏数
-    self.storeCount.text=[NSString stringWithFormat:@"%d",_datas.favorite_count];
+    self.storeCount.text=[NSString stringWithFormat:@"%@",_datas.favorite_count];
     
     // 0.取出模型数据
     NSArray *relateAlbums=_datas.related_albums;
@@ -109,14 +110,11 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        //取消高亮变灰
+        self.selectionStyle= UITableViewCellSelectionStyleNone;
         self.clipsToBounds = YES;
         self.layer.cornerRadius =5;
-        CGFloat cellW = DeviceWidth-2*WZBorder;
 
-        //背景
-        UIImageView *image=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, DeviceWidth-2*WZBorder, 250)];
-        [image setImage:[UIImage resizedImageWithName:@"bar_base_middle"]];
-        [self addSubview:image];
         //收藏到以下专辑
         UILabel *label=[[UILabel alloc]init];
         label.frame=CGRectMake(15, 15, cellW/2, 30);
@@ -152,6 +150,16 @@
         scrollView.frame=CGRectMake(WZBorder, 70, cellW-2*WZBorder, 160);
         [self addSubview:scrollView];
         self.scrollView=scrollView;
+        
+        //设置日间和夜间两种状态模式
+        [self jxl_setDayMode:^(UIView *view) {
+            self.backgroundColor=[UIColor whiteColor];
+           
+        } nightMode:^(UIView *view) {
+            self.backgroundColor=WZNightCellColor;
+            
+        }];
+
     
     }
     return self;

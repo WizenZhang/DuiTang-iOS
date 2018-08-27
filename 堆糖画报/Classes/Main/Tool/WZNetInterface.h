@@ -78,15 +78,16 @@
 //左侧点击出右侧页面主接口
 //http://www.duitang.com/napi/club/list/by_filter_id/?platform_version=4.1.2&filter_id=Club_%E6%8E%A8%E8%8D%90&device_platform=8295&__dtac=%257B%2522_r%2522%253A%2520%2522474974%2522%257D&screen_width=540&screen_height=960&start=0&app_version=57&platform_name=Android&locale=zh&app_code=nayutas
 #define CLUBRIGHT_URL @"http://www.duitang.com/napi/club/list/by_filter_id/?platform_version=4.1.2&filter_id=Club_%E6%8E%A8%E8%8D%90&device_platform=8295&__dtac=%257B%2522_r%2522%253A%2520%2522474974%2522%257D&screen_width=540&screen_height=960&start=0&app_version=57&platform_name=Android&locale=zh&app_code=nayutas"
-
+#define CLUB_URL @"http://www.duitang.com/napi/club/list/by_filter_id/?platform_version=4.1.2&filter_id=Club_%@"
+#define RIGHT_URL @"&device_platform=8295&__dtac=%257B%2522_r%2522%253A%2520%2522474974%2522%257D&screen_width=540&screen_height=960&start=0&app_version=57&platform_name=Android&locale=zh&app_code=nayutas"
 
 //右侧详情页面上部
 //http://www.duitang.com/napi/club/detail/?include_fields=share_links_2%2Ccheck_in%2Cexperience%2Crelated_ad%2Ctop_member_target%2Ctopic_update&platform_version=4.1.2&device_platform=8295&__dtac=%257B%2522_r%2522%253A%2520%2522474974%2522%257D&screen_width=540&screen_height=960&app_version=57&club_id=5594a81b05434b3fd5805c13&platform_name=Android&locale=zh&app_code=nayutas
-#define CLUBRIGHTUPDETAIL_URL @"http://www.duitang.com/napi/club/detail/?include_fields=share_links_2%2Ccheck_in%2Cexperience%2Crelated_ad%2Ctop_member_target%2Ctopic_update&platform_version=4.1.2&device_platform=8295&__dtac=%257B%2522_r%2522%253A%2520%2522474974%2522%257D&screen_width=540&screen_height=960&app_version=57&club_id=5594a81b05434b3fd5805c13&platform_name=Android&locale=zh&app_code=nayutas"
+#define CLUBRIGHTUPDETAIL_URL @"http://www.duitang.com/napi/club/detail/?include_fields=share_links_2&check_in&experience&related_ad&top_member_target&topic_update&platform_version=4.1.2&device_platform=8295&__dtac=%257%2522_r%2522%253A%2520%2522474974%2522%257D&screen_width=540&screen_height=960&app_version=57&club_id=%@&platform_name=Android&locale=zh&app_code=nayutas"
 
 //右侧详情页面下部
 //http://www.duitang.com/napi/topic/list/by_club/?platform_version=4.1.2&device_platform=8295&__dtac=%257B%2522_r%2522%253A%2520%2522474974%2522%257D&screen_width=540&screen_height=960&start=0&app_version=57&club_id=5594a81b05434b3fd5805c13&platform_name=Android&locale=zh&app_code=nayutas
-#define CLUBRTUPDETAIL_URL @"http://www.duitang.com/napi/topic/list/by_club/?platform_version=4.1.2&device_platform=8295&__dtac=%257B%2522_r%2522%253A%2520%2522474974%2522%257D&screen_width=540&screen_height=960&start=0&app_version=57&club_id=5594a81b05434b3fd5805c13&platform_name=Android&locale=zh&app_code=nayutas"
+#define CLUBRIGHTDOWNDETAIL_URL @"http://www.duitang.com/napi/topic/list/by_club/?platform_version=4.1.2&device_platform=8295&__dtac=%257%2522_r%2522%253A%2520%2522474974%2522%257D&screen_width=540&screen_height=960&start=0&app_version=57&club_id=%@&platform_name=Android&locale=zh&app_code=nayutas"
 
 //评论页面接口
 //http://www.duitang.com/napi/topic/detail/?include_fields=share_links&platform_version=4.1.2&device_platform=8295&__dtac=%257B%2522_r%2522%253A%2520%2522474974%2522%257D&screen_width=540&screen_height=960&app_version=57&platform_name=Android&locale=zh&app_code=nayutas&topic_id=48631

@@ -7,7 +7,7 @@
 //
 
 #import "WZCollectionViewCell.h"
-
+#import "JXLDayAndNightMode.h"
 
 @interface WZCollectionViewCell ()
 /** 画报顶部的view */
@@ -37,9 +37,8 @@
     self=[super initWithFrame:frame];
     if (self) {
         
-//      self.backgroundColor = [UIColor purpleColor];
         self.clipsToBounds = YES;
-        self.layer.cornerRadius =5;
+        self.layer.cornerRadius =3;
         // 1.添加上部配图的view
         [self setupTopView];
         
@@ -49,6 +48,17 @@
         // 3.添加下部的发布者View
         [self setupBottomView];    
         
+        // 4.设置日间和夜间两种状态模式
+        [self jxl_setDayMode:^(UIView *view) {
+            self.topView.backgroundColor = [UIColor whiteColor];
+            self.middleToolBar.backgroundColor = [UIColor whiteColor];
+            self.bottomView.backgroundColor = [UIColor whiteColor];
+        } nightMode:^(UIView *view) {
+            self.topView.backgroundColor = WZNightCellColor;
+            self.middleToolBar.backgroundColor = WZNightCellColor;
+            self.bottomView.backgroundColor = WZNightCellColor;
+        }];
+
     }
     return self;
 }
@@ -78,12 +88,8 @@
 - (void)setCellFrame:(WZCellFrame *)cellFrame
 {
     _cellFrame=cellFrame;
-//    self.backgroundColor=[UIColor redColor];
 
     // 1.topView
-    self.topView.clipsToBounds = YES;
-    self.topView.layer.cornerRadius =5;
-
     self.topView.frame=self.cellFrame.topViewF;
     self.topView.cellFrame=self.cellFrame;
     
@@ -92,9 +98,6 @@
     self.middleToolBar.objectLists=self.cellFrame.objectLists;
     
     //3.bottomView
-    self.bottomView.clipsToBounds = YES;
-    self.bottomView.layer.cornerRadius =5;
-    
     self.bottomView.frame=self.cellFrame.bottomViewF;
     self.bottomView.cellFrame=self.cellFrame;
     

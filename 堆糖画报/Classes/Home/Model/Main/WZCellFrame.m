@@ -13,12 +13,20 @@
 #import "WZSender.h"
 
 @implementation WZCellFrame
+
 - (void)setObjectLists:(WZObjectLists *)objectLists
 {
-
+   
     _objectLists=objectLists;
-
-    CGFloat cellW = (DeviceWidth-4*WZBorder)/2;
+    if (self.biserial) {
+        CGFloat CellW = DeviceWidth-2*WZEdge;
+         _CellW=CellW;
+    }else{
+        CGFloat CellW = (DeviceWidth-3*WZEdge)/2;
+         _CellW=CellW;
+    }
+    
+   
 
 /******************************瀑布流尺寸**************************************/
     
@@ -26,26 +34,31 @@
     WZPhoto *photo=objectLists.photo;
     
     // 1.1topView
-    CGFloat topViewW = cellW;
-    CGFloat topViewX = WZBorder;
+    CGFloat topViewW = _CellW;
+    CGFloat topViewX = 0;
     CGFloat topViewY = 0;
     
     // 2.画报的配图
     CGFloat photoX = 0;
     CGFloat photoY = 0;
-    CGFloat photoW = cellW;
+    CGFloat photoW = _CellW;
     CGFloat ratio = photoW / photo.width;
-    CGFloat photoH = photo.height * ratio;
+    CGFloat photoH = photo.height  * ratio;
     if (photoH>DeviceHeight*0.6) {
         _photoF = CGRectMake(photoX, photoY, photoW, DeviceHeight*0.6);
-
+        CGFloat markW=30;
+        CGFloat markH=18;
+        CGFloat markX=CGRectGetMaxX(_photoF)-markW;
+        CGFloat markY=CGRectGetMaxY(_photoF)-markH;
+        _markF=CGRectMake(markX, markY,  markW, markH);
     }else{
         _photoF = CGRectMake(photoX, photoY, photoW, photoH);
+        _markF=CGRectMake(0, 0,  0, 0);
+
     }
 
-    
     //3.画报的配图描述
-    CGFloat msgW = cellW-2*WZBorder;
+    CGFloat msgW = _CellW-2*WZBorder;
     CGFloat msgX = WZBorder;
     CGFloat msgY = CGRectGetMaxY(_photoF) + WZBorder;
     CGSize msgLabelSize = [objectLists.msg sizeWithFont:MsgFont constrainedToSize:CGSizeMake(msgW, 100)];
@@ -53,25 +66,23 @@
     
     // 1.2topView
     CGFloat topViewH = CGRectGetMaxY(_msgF);
-    _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH+5);
+    _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH);
 
     // 4.工具条
-    CGFloat middleToolBarX = WZBorder;
-    CGFloat middleToolBarY = CGRectGetMaxY(_topViewF)-5;
-    CGFloat middleToolBarW = cellW;
+    CGFloat middleToolBarX = 0;
+    CGFloat middleToolBarY = CGRectGetMaxY(_topViewF);
+    CGFloat middleToolBarW = _CellW;
     CGFloat middleToolBarH = 40;
-    _middleToolBarF = CGRectMake(middleToolBarX, middleToolBarY, middleToolBarW, middleToolBarH+5);
+    _middleToolBarF = CGRectMake(middleToolBarX, middleToolBarY, middleToolBarW, middleToolBarH);
     
     //5.bottomView
-    CGFloat bottomViewW = cellW;
-    CGFloat bottomViewH = 50;
-    CGFloat bottomViewX = WZBorder;
-    CGFloat bottomViewY = CGRectGetMaxY(_middleToolBarF)-4;
-    _bottomViewF = CGRectMake(bottomViewX, bottomViewY, bottomViewW, bottomViewH);
-
+    CGFloat bottomViewW = _CellW;
+    CGFloat bottomViewX = 0;
+    CGFloat bottomViewY = CGRectGetMaxY(_middleToolBarF);
+    
     //6.画报的发布者头像
     CGFloat avatorHW = 40;
-    CGFloat avatorX = WZBorder;
+    CGFloat avatorX = WZEdge;
     CGFloat avatorY = WZBorder;
     _avatorF = CGRectMake(avatorX, avatorY, avatorHW, avatorHW);
     
@@ -89,8 +100,11 @@
     CGFloat usernameY = CGRectGetMaxY(_nameF) + WZBorder;
     _usernameF = CGRectMake(usernameX, usernameY, usernameW, usernameH);
     
+    CGFloat bottomViewH = CGRectGetMaxY(_avatorF)+WZEdge;
+    _bottomViewF = CGRectMake(bottomViewX, bottomViewY, bottomViewW, bottomViewH);
+
     //9.画报的高度
-    _cellH=CGRectGetMaxY(_bottomViewF)+WZBorder;
+    _cellH=CGRectGetMaxY(_bottomViewF);
     
 //    //计算cellF左右Y值的坐标
 //    static int leftColumn=0;
@@ -101,13 +115,13 @@
 //        CGFloat positonX=(DeviceWidth-3*WZBorder)/2+2*WZBorder;
 //        CGFloat positionY=rightColumn;
 //        rightColumn+=_cellH+WZBorder;
-//        _cellF = CGRectMake(positonX, positionY+headHeight+5,cellW,_cellH) ;
+//        _cellF = CGRectMake(positonX, positionY+headHeight+5,CellW,_cellH) ;
 //    }
 //    else{
 //        CGFloat positonX=WZBorder;
 //        CGFloat positionY=leftColumn;
 //        leftColumn+=_cellH+WZBorder;
-//        _cellF = CGRectMake(positonX, positionY+headHeight+5,cellW,_cellH) ;
+//        _cellF = CGRectMake(positonX, positionY+headHeight+5,CellW,_cellH) ;
 //    }
 /******************************瀑布流尺寸**************************************/
     
@@ -119,19 +133,19 @@
 //   
 //    
 //    // 1.1topView
-//    _topViewF = CGRectMake(0, 0, cellW, 310);
+//    _topViewF = CGRectMake(0, 0, CellW, 310);
 //    
 //    // 2.画报的配图
-//    _photoF = CGRectMake(0, 0, cellW, 260);
+//    _photoF = CGRectMake(0, 0, CellW, 260);
 //   
 //    //3.画报的配图描述
-//    _msgF = CGRectMake(0, CGRectGetMaxY(_photoF)+WZBorder, cellW, 45);
+//    _msgF = CGRectMake(0, CGRectGetMaxY(_photoF)+WZBorder, CellW, 45);
 //    
 //    // 4.工具条
-//    _middleToolBarF = CGRectMake(0, CGRectGetMaxY(_topViewF), cellW, 40);
+//    _middleToolBarF = CGRectMake(0, CGRectGetMaxY(_topViewF), CellW, 40);
 //    
 //    //5.bottomView
-//    _bottomViewF = CGRectMake(0,CGRectGetMaxY(_middleToolBarF), cellW, 50);
+//    _bottomViewF = CGRectMake(0,CGRectGetMaxY(_middleToolBarF), CellW, 50);
 //    
 //    //6.画报的发布者头像
 //    _avatorF = CGRectMake(WZBorder, WZBorder, 40, 40);
@@ -151,12 +165,12 @@
 //        CGFloat positonX=WZBorder;
 //        
 //        
-//        _cellF = CGRectMake(positonX, positionY+headHeight+5,cellW,_cellH) ;
+//        _cellF = CGRectMake(positonX, positionY+headHeight+5,CellW,_cellH) ;
 //    }
 //    else{
 //        CGFloat positonX=(DeviceWidth-3*WZBorder)/2+2*WZBorder;
 //        
-//        _cellF = CGRectMake(positonX, positionY+headHeight+5,cellW,_cellH) ;
+//        _cellF = CGRectMake(positonX, positionY+headHeight+5,CellW,_cellH) ;
 //    }
 //    i++;
 //    NSLog(@"y=------%f", _cellF.origin.y);

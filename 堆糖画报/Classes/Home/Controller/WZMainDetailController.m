@@ -19,9 +19,14 @@
 #import "WZDetailCellFrame.h"
 #import "WaterFLayout.h"
 #import "WZRelatedAlbums.h"
+#import "UMSocial.h"
+#import "JXLDayAndNightMode.h"
 @interface WZMainDetailController () <WZThirdRowCellDelegate>
 @property (nonatomic,strong) WZHttpRequestManager *manager;
 @property (nonatomic,strong) WZRelatedAlbums *relatedAlbums;
+@property (nonatomic,strong) WZObjectLists *datas;
+@property(nonatomic,strong)NSArray *items;
+@property (nonatomic, strong)NSArray *cellH;
 @end
 
 @implementation WZMainDetailController
@@ -30,17 +35,43 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title=@"详情";
     self.tableView.separatorStyle=NO;
     self.tableView.contentInset=UIEdgeInsetsMake(0, 0, WZBorder, 0);
-    self.view.backgroundColor=WZColor(223, 224, 225);
+    //设置日间和夜间两种状态模式
+    [JXLDayAndNightManager setDayAndNight:self];
+    
     //加载选中item所对应数据
     [self loadDatas];
-
+    //添加分享按钮
+    [self addShareButton];
 }
+
+- (void)addShareButton
+{
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    shareButton.frame = CGRectMake(0, 0, 20, 20);
+    
+    [shareButton setImage:[UIImage imageNamed:@"ic_actbar_share"] forState:UIControlStateNormal];
+    
+    [shareButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    //    shareButton.backgroundColor = [UIColor redColor];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:shareButton];
+    
+    self.navigationItem.rightBarButtonItem = item;
+}
+- (void)buttonClick:(UIButton *)button{
+    
+//    button.selected = !button.selected;
+    //分享
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:@"55def769e0f55ae678001c81" shareText:@"我爱画报，好看有好玩，快来玩吧！" shareImage:nil shareToSnsNames:@[UMShareToWechatTimeline,UMShareToSina,UMShareToSms,UMShareToRenren,UMShareToDouban,UMShareToWechatSession,UMShareToEmail] delegate:nil];
+}
+
+
 -(void)loadDatas
 {
     //通过画报ID获得选中item所对应数据
-    NSString *path = [NSString stringWithFormat:MAINDETAIL_URL,_datas.id];
+    NSString *path = [NSString stringWithFormat:MAINDETAIL_URL,_ID];
     
     _manager = [[WZHttpRequestManager alloc] initWithUrlString:path andBlock:^(WZHttpRequestManager *manager) {
         
@@ -48,6 +79,7 @@
        
         NSDictionary * dict = dic[@"data"];    
         self.datas=[[WZObjectLists alloc]initWithDictionary:dict error:nil];
+        [self setupItems:self.tableView];
         [self.tableView reloadData];
     }];
 }
@@ -62,37 +94,35 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 3;
+    return _items.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row==0) {
-        // 1.创建cell
-        WZFirstRowCell *cell = [WZFirstRowCell cellWithTableView:tableView];
-        self.detailCellFrame=[[WZDetailCellFrame alloc]init];
-        // 2.传递Frame模型
-        self.detailCellFrame.datas=_datas;
-        // 3.传递数据模型
-        cell.datas = _datas;
-        return cell;
-        
-    }else if(indexPath.row==1){
-        // 1.创建cell
-        WZSecondRowCell *cell = [WZSecondRowCell cellWithTableView:tableView];
-        // 2.传递数据模型
-        cell.datas = _datas;
-        return cell;
-    }else{
-        // 1.创建cell
-        WZThirdRowCell *cell = [WZThirdRowCell cellWithTableView:tableView];
-        // 2.传递数据模型
-        cell.datas = _datas;
-        cell.delegate=self;
-        return cell;
-    }
+    return _items[indexPath.row];
 }
+
+/**
+ *  第0组数据
+ */
+- (void)setupItems:(UITableView *)tableView
+{
+    WZFirstRowCell *firstRowCell = [WZFirstRowCell cellWithTableView:tableView];
+    //传递模型数据
+    _detailCellFrame=[[WZDetailCellFrame alloc]init];
+    _detailCellFrame.datas=_datas;
+    firstRowCell.datas = _datas;
+    
+    WZSecondRowCell *secondRowCell = [WZSecondRowCell cellWithTableView:tableView];
+    secondRowCell.datas = _datas;
+
+    WZThirdRowCell *thirdRowCell = [WZThirdRowCell cellWithTableView:tableView];
+    thirdRowCell.datas = _datas;
+    thirdRowCell.delegate=self;
+    _items = @[firstRowCell,secondRowCell,thirdRowCell];
+}
+
 #pragma mark - thirdRowCell代理方法
 - (void)thirdRowCellClickImage:(WZThirdRowCell *)thirdRowCell
 {
@@ -109,14 +139,7 @@
     userDetail.ID=self.relatedAlbums.id;
     [self.navigationController pushViewController:userDetail animated:YES];
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor blueColor];
-   
-    [self.navigationController pushViewController:vc animated:YES];
-
-}
 #pragma mark - 代理方法
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -129,4 +152,5 @@
         return 250;
     }
 }
+
 @end

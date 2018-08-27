@@ -11,6 +11,8 @@
 @interface WZCellFrame : NSObject
 @property (nonatomic, strong) WZObjectLists *objectLists;
 
+//是否双列
+@property(nonatomic,assign)BOOL biserial;
 //画报的顶部
 @property(nonatomic ,assign, readonly) CGRect topViewF;
 //画报的中部工具条
@@ -19,6 +21,8 @@
 @property(nonatomic ,assign, readonly) CGRect bottomViewF;
 //画报的配图
 @property(nonatomic ,assign, readonly) CGRect photoF;
+//画报的配图右下角长图标志
+@property(nonatomic ,assign, readonly) CGRect markF;
 //画报的配图描述
 @property(nonatomic ,assign, readonly) CGRect msgF;
 //画报的评论图片
@@ -43,6 +47,9 @@
 @property(nonatomic ,assign, readonly) CGRect usernameF;
 /* cell的高度 */
 @property (nonatomic, assign, readonly) CGFloat cellH;
+/* cell的高度 */
+@property (nonatomic, assign, readonly) CGFloat CellW;
+
 /* cell的Size */
 @property (nonatomic, assign, readonly) CGSize cellS;
 /* cell的Frame */

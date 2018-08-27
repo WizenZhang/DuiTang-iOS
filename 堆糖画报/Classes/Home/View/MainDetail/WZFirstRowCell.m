@@ -13,6 +13,7 @@
 #import "WZPhoto.h"
 #import "WZSender.h"
 #import "WZAlbum.h"
+#import "JXLDayAndNightMode.h"
 @interface WZFirstRowCell()
 /**画报的配图*/
 @property(nonatomic ,weak)UIImageView *photo;
@@ -37,7 +38,9 @@
 -(void)setDatas:(WZObjectLists *)datas
 {
     _datas=datas;
-
+    if (!_datas) {
+        return;
+    }
     // 取出模型数据
     WZPhoto *photo=_datas.photo;
     WZSender *sender=_datas.sender;
@@ -48,23 +51,14 @@
     _detailCellFrame.datas=_datas;
    
     // 1.画报的配图
-    NSMutableString *str = [[NSMutableString alloc]initWithCapacity:0];
-    [str appendString:[NSString stringWithFormat:@"%@",photo.path]];
-    NSRange range = [str rangeOfString:@"_webp"];
-    if (range.location == NSNotFound) {
-        //         NSLog(@"没有找到");
-        //        NSLog(@"%@",photo.path);
-    }else{
-        [str deleteCharactersInRange:range];
-        
-        [self.photo setImageWithURL:[NSURL URLWithString:str]placeholderImage:[UIImage imageNamed:@"image_default"]];
-    }
+    
+    [self.photo setImageWithURL:[NSURL URLWithString:photo.path]placeholderImage:[UIImage imageNamed:@"image_default"]];
     self.photo.frame=_detailCellFrame.photoF;
     
     // 2.画报的发布者头像
     [self.avator setImageWithURL:[NSURL URLWithString:sender.avatar]placeholderImage:[UIImage imageNamed:@"image_default"]];
     self.avator.clipsToBounds = YES;
-    self.avator.layer.cornerRadius =5;
+    self.avator.layer.cornerRadius =20;
     self.avator.frame=_detailCellFrame.avatorF;
     
     // 3.画报的发布者昵称
@@ -106,11 +100,10 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor=[UIColor whiteColor];
+        //取消高亮变灰
+        self.selectionStyle= UITableViewCellSelectionStyleNone;
         self.clipsToBounds = YES;
         self.layer.cornerRadius =5;
-        CGFloat cellW = DeviceWidth-2*WZBorder;
-    
 
         // 画报的配图
         UIImageView *photo=[[UIImageView alloc]init];
@@ -125,7 +118,6 @@
         //画报的发布者昵称
         UILabel *username=[[UILabel alloc]init];
         username.font = NameFont;
-//        username.numberOfLines=0;
         username.textColor=[UIColor grayColor];
         [username setTextColor:[UIColor blueColor]];
         [self addSubview:username];
@@ -134,7 +126,6 @@
         //画报的所属相册名称
         UILabel *name=[[UILabel alloc]init];
         name.font = MsgFont;
-//        name.numberOfLines=0;
         [self addSubview:name];
         self.name=name;
         
@@ -163,6 +154,18 @@
         msg.numberOfLines=0;
         [self addSubview:msg];
         self.msg=msg;
+        
+        //设置日间和夜间两种状态模式
+        [self jxl_setDayMode:^(UIView *view) {
+            self.backgroundColor=[UIColor whiteColor];
+            [self.name setTextColor:[UIColor blackColor]];
+            [self.msg setTextColor:[UIColor blackColor]];
+        } nightMode:^(UIView *view) {
+            self.backgroundColor=WZNightCellColor;
+            [self.name setTextColor:WZNightTextColor];
+            [self.msg setTextColor:WZNightTextColor];
+        }];
+        
     }
     return self;
 }

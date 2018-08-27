@@ -21,4 +21,8 @@
  */
 + (UIImage *)resizedImageWithName:(NSString *)name;
 + (UIImage *)resizedImageWithName:(NSString *)name left:(CGFloat)left top:(CGFloat)top;
+/**
+ * 对图片进行模糊处理
+*/
++ (UIVisualEffectView *)effectViewWithFrame:(CGRect)frame;
 @end

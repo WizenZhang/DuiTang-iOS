@@ -34,4 +34,5 @@
  *  相关画报的相册用户(数组中装模型:WZUser)
  */
 @property (nonatomic,strong) WZUser *user;
+@property (nonatomic,copy) NSString *count;
 @end

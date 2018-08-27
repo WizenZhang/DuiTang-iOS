@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
+@protocol WZPhoto
+@end
 @interface WZPhoto : JSONModel
 /**
  *  画报的配图路径
@@ -16,10 +18,10 @@
 /**
  *  画报的配图宽度
  */
-@property (nonatomic, assign)int width;
+@property (nonatomic, assign) long width;
 /**
  *  画报的配图高度
  */
-@property (nonatomic, assign)int height;
+@property (nonatomic, assign) long height;
 
 @end
